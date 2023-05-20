@@ -1,10 +1,8 @@
-name: Deploy Theme
+name: Deploy Dev Theme
 on:
   push:
     branches:
       - dev
-  workflow_dispatch:
-  
 jobs:
   Deploy-Theme:
     runs-on: ubuntu-22.04
