@@ -438,7 +438,7 @@
         "isMulticolor": false,
         "isMulticolor2": false,
         "tags": [
-          "ionicons_svg_logo-twitter"
+          "ionicons_svg_logo-x"
         ],
         "grid": 0
       },
@@ -448,7 +448,7 @@
       "properties": {
         "order": 17,
         "id": 13,
-        "name": "twitter",
+        "name": "x",
         "prevSize": 32
       },
       "setIdx": 1,

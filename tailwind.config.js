@@ -59,7 +59,7 @@ module.exports = {
 
       // Social Media
       facebook: '#4267B2',
-      twitter: '#55acee',
+      x: '#55acee',
       youtube: '#FF0000',
       linkedin: '#007bb6',
       instagram: '#bf32a8',

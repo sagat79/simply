@@ -13,7 +13,7 @@
     ·
     <a href="https://www.paypal.me/godofredoninja">PayPal</a>
     ·
-    <a href="https://twitter.com/godofredoninja">Twitter</a>
+    <a href="https://x.com/godofredoninja">x</a>
     <br /><br />
     <a href="https://github.com/TryGhost/Ghost">
         <img src="https://img.shields.io/badge/Ghost-4.x-brightgreen.svg" alt="Ghost version" />
