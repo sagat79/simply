@@ -222,7 +222,7 @@
     "precss": "^4.0.0",
     "pump": "^3.0.0",
     "standard": "^17.0.0",
-    "stylelint": "^14.9.1",
+    "stylelint": "^16.0.0",
     "stylelint-config-recommended": "^14.0.0",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0"
