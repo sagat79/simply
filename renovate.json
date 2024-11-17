@@ -13,6 +13,7 @@
 		"dependencies"
 	],
   "forkProcessing": "enabled",
+  "baseBranches": ["dev"],
   "osvVulnerabilityAlerts": true,
 	"dependencyDashboardOSVVulnerabilitySummary": "all"
 }
