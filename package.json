@@ -199,7 +199,7 @@
     "cross-env": "^7.0.3",
     "cssnano": "^5.1.12",
     "cssnano-preset-advanced": "^7.0.0",
-    "del": "^6.1.1",
+    "del": "^8.0.0",
     "dotenv": "^16.0.3",    
     "gscan": "^4.31.2",
     "gulp": "^4.0.2",
