@@ -215,7 +215,7 @@
     "gulp-zip": "^5.1.0",
     "merge-stream": "^2.0.0",
     "postcss": "^8.4.14",
-    "postcss-discard-comments": "^5.1.2",
+    "postcss-discard-comments": "^7.0.0",
     "postcss-extend": "^1.0.5",
     "postcss-import": "^15.1.0",
     "postcss-nested": "^7.0.0",
