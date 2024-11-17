@@ -218,7 +218,7 @@
     "postcss-discard-comments": "^5.1.2",
     "postcss-extend": "^1.0.5",
     "postcss-import": "^15.1.0",
-    "postcss-nested": "^6.0.0",
+    "postcss-nested": "^7.0.0",
     "precss": "^4.0.0",
     "pump": "^3.0.0",
     "standard": "^17.0.0",
