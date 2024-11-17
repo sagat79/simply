@@ -202,7 +202,7 @@
     "del": "^8.0.0",
     "dotenv": "^16.0.3",    
     "gscan": "^4.31.2",
-    "gulp": "^4.0.2",
+    "gulp": "^5.0.0",
     "gulp-header": "^2.0.9",
     "gulp-if": "^3.0.0",
     "gulp-livereload": "^4.0.2",
