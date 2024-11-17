@@ -12,7 +12,7 @@
 	"labels": [
 		"dependencies"
 	],
-  "forkProcessing": true,
+  "forkProcessing": "enabled",
   "osvVulnerabilityAlerts": true,
 	"dependencyDashboardOSVVulnerabilitySummary": "all"
 }
