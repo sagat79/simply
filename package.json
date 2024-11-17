@@ -194,7 +194,7 @@
     "@tryghost/admin-api": "^1.13.2",
     "autoprefixer": "^10.4.7",
     "babelify": "^10.0.0",
-    "beeper": "^2.1.0",
+    "beeper": "^3.0.0",
     "browserify": "^17.0.0",
     "cross-env": "^7.0.3",
     "cssnano": "^5.1.12",
