@@ -13,5 +13,6 @@
 		"dependencies"
 	],
   	"osvVulnerabilityAlerts": true,
-	"dependencyDashboardOSVVulnerabilitySummary": "all"
+	"dependencyDashboardOSVVulnerabilitySummary": "all",
+	"forkProcessing": "enabled"
 }
