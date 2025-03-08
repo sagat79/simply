@@ -228,7 +228,7 @@
     "vinyl-source-stream": "^2.0.0"
   },
   "dependencies": {
-    "infinite-scroll": "^4.0.1",
+    "infinite-scroll": "^5.0.0",
     "lazysizes": "^5.3.2",
     "medium-zoom": "^1.0.6",
     "normalize.css": "^8.0.1",
