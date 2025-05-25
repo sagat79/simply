@@ -35,14 +35,21 @@
             <a href="{{social_url type="tiktok"}}" target="_blank" rel="noopener noreferrer">{{> "amp/icon-tiktok"}}</a>
         {{/if}}
 
-        {{!-- Instagram --}}
-        {{!-- <a href="" target="_blank" rel="noopener noreferrer">{{> "amp/icon-instagram"}}</a> --}}
+        {{#if @site.instagram}}
+            <a href="{{social_url type="instagram"}}" target="_blank" rel="noopener noreferrer">{{> "amp/icon-instagram"}}</a>
+        {{/if}}
 
-        {{!-- Youtube  --}}
-        {{!-- <a href="" target="_blank" rel="noopener noreferrer">{{> "amp/icon-youtube"}}</a> --}}
+        {{#if @site.youtube}}
+            <a href="{{social_url type="youtube"}}" target="_blank" rel="noopener noreferrer">{{> "amp/icon-youtube"}}</a>
+        {{/if}}
 
-        {{!-- Telegram --}}
-        {{!-- <a href="" target="_blank" rel="noopener noreferrer">{{> "amp/icon-telegram"}}</a> --}}
+        {{#if @site.telegram}}
+            <a href="{{social_url type="telegram"}}" target="_blank" rel="noopener noreferrer">{{> "amp/icon-telegram"}}</a>
+        {{/if}}
+
+        {{#if @site.snapchat}}
+            <a href="{{social_url type="snapchat"}}" target="_blank" rel="noopener noreferrer">{{> "amp/icon-snapchat"}}</a>
+        {{/if}}
 
         {{!-- SnapChap  --}}
         {{!-- <a href="" target="_blank" rel="noopener noreferrer">{{> "amp/icon-snapchap"}}</a> --}}

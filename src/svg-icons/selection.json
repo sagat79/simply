@@ -499,14 +499,14 @@
         {}
       ],
       "properties": {
-        "order": 30,
-        "id": 20,
+        "order": 35,
+        "id": 25,
         "name": "threads",
         "prevSize": 32
       },
       "setIdx": 1,
       "setId": 3,
-      "iconIdx": 20
+      "iconIdx": 25
     },
     {
       "icon": {
@@ -527,14 +527,14 @@
         {}
       ],
       "properties": {
-        "order": 31,
-        "id": 21,
+        "order": 34,
+        "id": 24,
         "name": "bluesky",
         "prevSize": 32
       },
       "setIdx": 1,
       "setId": 3,
-      "iconIdx": 21
+      "iconIdx": 24
     },
     {
       "icon": {
