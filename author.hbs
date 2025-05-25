@@ -69,6 +69,24 @@
                 <svg class="icon"><use xlink:href="#icon-threads"></use></svg>
             </a>
             {{/if}}
+
+            {{#if bluesky}}
+            <a href="{{social_url type="bluesky"}}" class="button text-white bg-transparent hover:text-white hover:bg-transparent" target="_blank" rel="noopener noreferrer">
+                <svg class="icon"><use xlink:href="#icon-bluesky"></use></svg>
+            </a>
+            {{/if}}
+
+            {{#if mastodon}}
+            <a href="{{social_url type="mastodon"}}" class="button text-white bg-transparent hover:text-white hover:bg-transparent" target="_blank" rel="noopener noreferrer">
+                <svg class="icon"><use xlink:href="#icon-mastodon"></use></svg>
+            </a>
+            {{/if}}
+
+            {{#if tiktok}}
+            <a href="{{social_url type="tiktok"}}" class="button text-white bg-transparent hover:text-white hover:bg-transparent" target="_blank" rel="noopener noreferrer">
+                <svg class="icon"><use xlink:href="#icon-tiktok"></use></svg>
+            </a>
+            {{/if}}
         </div>
     </article>
 </div>

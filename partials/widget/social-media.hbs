@@ -55,6 +55,66 @@
     </a>
     {{/if}}
 
+    {{#if @site.threads}}
+    <a class="godo-tracking p-2 inline-block hover:opacity-70"
+        data-event-category="Header"
+        data-event-action="Social"
+        data-event-label="Threads"
+        data-event-non-interaction="true"
+        title="Threads {{@site.threads}}"
+        aria-label="Threads {{@site.threads}}"
+        href="{{social_url type="threads"}}"
+        target="_blank"
+        rel="noopener noreferrer">
+        <svg class="icon icon--threads"><use xlink:href="#icon-threads"></use></svg>
+    </a>
+    {{/if}}
+
+    {{#if @site.bluesky}}
+    <a class="godo-tracking p-2 inline-block hover:opacity-70"
+        data-event-category="Header"
+        data-event-action="Social"
+        data-event-label="Bluesky"
+        data-event-non-interaction="true"
+        title="Bluesky {{@site.bluesky}}"
+        aria-label="Bluesky {{@site.bluesky}}"
+        href="{{social_url type="bluesky"}}"
+        target="_blank"
+        rel="noopener noreferrer">
+        <svg class="icon icon--bluesky"><use xlink:href="#icon-bluesky"></use></svg>
+    </a>
+    {{/if}}
+
+    {{#if @site.mastodon}}
+    <a class="godo-tracking p-2 inline-block hover:opacity-70"
+        data-event-category="Header"
+        data-event-action="Social"
+        data-event-label="Mastodon"
+        data-event-non-interaction="true"
+        title="Mastodon {{@site.mastodon}}"
+        aria-label="Mastodon {{@site.mastodon}}"
+        href="{{social_url type="mastodon"}}"
+        target="_blank"
+        rel="noopener noreferrer">
+        <svg class="icon icon--mastodon"><use xlink:href="#icon-mastodon"></use></svg>
+    </a>
+    {{/if}}
+
+    {{#if @site.tiktok}}
+    <a class="godo-tracking p-2 inline-block hover:opacity-70"
+        data-event-category="Header"
+        data-event-action="Social"
+        data-event-label="TikTok"
+        data-event-non-interaction="true"
+        title="TikTok {{@site.tiktok}}"
+        aria-label="TikTok {{@site.tiktok}}"
+        href="{{social_url type="tiktok"}}"
+        target="_blank"
+        rel="noopener noreferrer">
+        <svg class="icon icon--tiktok"><use xlink:href="#icon-tiktok"></use></svg>
+    </a>
+    {{/if}}
+
     <a class="godo-tracking p-2 inline-block hover:opacity-70"
         data-event-category="Header"
         data-event-action="Social"

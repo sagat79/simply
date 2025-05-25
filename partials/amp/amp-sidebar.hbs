@@ -19,6 +19,22 @@
             <a href="{{x_url}}" target="_blank" rel="noopener noreferrer">{{> "amp/icon-x"}}</a>
         {{/if}}
 
+        {{#if @site.threads}}
+            <a href="{{social_url type="threads"}}" target="_blank" rel="noopener noreferrer">{{> "amp/icon-threads"}}</a>
+        {{/if}}
+
+        {{#if @site.bluesky}}
+            <a href="{{social_url type="bluesky"}}" target="_blank" rel="noopener noreferrer">{{> "amp/icon-bluesky"}}</a>
+        {{/if}}
+
+        {{#if @site.mastodon}}
+            <a href="{{social_url type="mastodon"}}" target="_blank" rel="noopener noreferrer">{{> "amp/icon-mastodon"}}</a>
+        {{/if}}
+
+        {{#if @site.tiktok}}
+            <a href="{{social_url type="tiktok"}}" target="_blank" rel="noopener noreferrer">{{> "amp/icon-tiktok"}}</a>
+        {{/if}}
+
         {{!-- Instagram --}}
         {{!-- <a href="" target="_blank" rel="noopener noreferrer">{{> "amp/icon-instagram"}}</a> --}}
 
