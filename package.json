@@ -159,6 +159,21 @@
         "type": "text",
         "default": "Sign up for more like this",
         "group": "post"
+      },
+      "font_url": {
+        "type": "text",
+        "default": "",
+        "group": "fonts"
+      },
+      "title_font": {
+        "type": "text",
+        "default": "",
+        "group": "fonts"
+      },
+      "body_font": {
+        "type": "text",
+        "default": "",
+        "group": "fonts"
       }
     }
   },
