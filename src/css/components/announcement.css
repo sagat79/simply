@@ -1,0 +1,40 @@
+/* Announcement Bar
+/* ---------------------------------------------------------- */
+
+.announcement-bar {
+    transition: transform 0.3s ease-in-out;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+.announcement-bar.is-hidden {
+    transform: translateY(-100%);
+}
+
+.announcement-bar + .header {
+    top: 32px; /* Height of the announcement bar */
+}
+
+.announcement-bar.is-hidden + .header {
+    top: 0;
+}
+
+/* Adjust main content when announcement is visible */
+.announcement-bar ~ .simply-viewport {
+    padding-top: 32px;
+}
+
+.announcement-bar.is-hidden ~ .simply-viewport {
+    padding-top: 0;
+}
+
+/* Special styles for personal home template */
+.has-cover .announcement-bar {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.has-cover .announcement-bar:not(.is-hidden) ~ .simply-hero-cover {
+    padding-top: 56px; /* 24px (original padding) + 32px (announcement height) */
+} 
