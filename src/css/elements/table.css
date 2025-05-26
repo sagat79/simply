@@ -13,4 +13,3 @@ table td {
 table tr:last-child td {
   @apply border-b-slate-300;
 }
-

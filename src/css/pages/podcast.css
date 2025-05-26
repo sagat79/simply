@@ -13,7 +13,7 @@
     /* @extend %font-serif; */
 
     margin: 2.5rem auto;
-    opacity: .9;
+    opacity: 0.9;
 
     em {
       color: #fecd35;
@@ -23,7 +23,7 @@
 
   /* Buttos */
   &-buttons .button {
-    background: hsla(0, 0%, 100%, .9);
+    background: hsl(0, 0%, 100%, 0.9);
     color: #000;
 
     img {

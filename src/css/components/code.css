@@ -84,7 +84,7 @@ a > code[class*="language-"] {
 .token.prolog,
 .token.doctype,
 .token.cdata {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgb(255, 255, 255, 0.5);
 }
 
 .token.punctuation {

@@ -1,28 +1,35 @@
 {
-  "extends": "stylelint-config-recommended",
+  "extends": [
+    "stylelint-config-standard"
+  ],
+  "ignoreFiles": ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"],
   "rules": {
-    "max-nesting-depth": 3,
-    "property-no-vendor-prefix": true,
-    "max-empty-lines": 2,
-    "indentation": 2,
-    "function-calc-no-unspaced-operator": true,
-    "string-quotes": "double",
-    "no-duplicate-selectors": null,
     "at-rule-no-unknown": null,
-    "color-hex-case": null,
-    "color-named": "never",
-    "selector-max-id": 0,
-    "selector-combinator-space-after": "always",
-    "declaration-block-trailing-semicolon": "always",
-    "declaration-colon-space-before": "never",
-    "declaration-colon-space-after": "always",
-    "rule-empty-line-before": ["always-multi-line", {
-      "ignore": ["after-comment", "first-nested", "inside-block"]
-    }],
-    "media-feature-range-operator-space-before": "always",
-    "media-feature-range-operator-space-after": "always",
-    "media-feature-parentheses-space-inside": "never",
-    "media-feature-colon-space-before": "never",
-    "media-feature-colon-space-after": "always"
+    "at-rule-no-deprecated": null,
+    "no-descending-specificity": null,
+    "property-no-vendor-prefix": null,
+    "declaration-block-no-redundant-longhand-properties": null,
+    "custom-property-pattern": null,
+    "keyframes-name-pattern": null,
+    "number-max-precision": null,
+    "media-feature-range-notation": null,
+    "selector-class-pattern": null,
+    "color-function-notation": null,
+    "alpha-value-notation": null,
+    "value-keyword-case": null,
+    "no-invalid-position-at-import-rule": null,
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": ["global"]
+      }
+    ],
+    "comment-empty-line-before": null,
+    "declaration-empty-line-before": null,
+    "custom-property-empty-line-before": null,
+    "rule-empty-line-before": null,
+    "selector-not-notation": null,
+    "hue-degree-notation": null,
+    "media-query-no-invalid": null
   }
 }

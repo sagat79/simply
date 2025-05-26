@@ -1,4 +1,4 @@
-.custom-post-image .hh-author-name a{
+.custom-post-image .hh-author-name a {
   color: #fff;
 }
 
@@ -40,4 +40,3 @@
     @apply lg:text-3xl;
   }
 }
-

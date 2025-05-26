@@ -1,5 +1,5 @@
 .header {
-  transition: transform .3s;
+  transition: transform 0.3s;
 }
 
 .header-bg {
@@ -7,15 +7,16 @@
 }
 
 .shadow-header {
-  box-shadow: 0 0 3px rgba(0, 0, 0, .03), 0 3px 46px rgba(0, 0, 0, .07);
+  box-shadow:
+    0 0 3px rgb(0, 0, 0, 0.03),
+    0 3px 46px rgb(0, 0, 0, 0.07);
 }
-
 
 /* Header has Transparent
 /* ---------------------------------------------------------- */
 
 .header-right > .button.is-white {
-  background-color: rgba(255, 255, 255, 0);
+  background-color: rgb(255, 255, 255, 0);
   color: var(--header-text-link);
 }
 
@@ -32,7 +33,7 @@
 
 .menu-burger {
   margin-right: -0.5rem;
-  transition: transform .4s;
+  transition: transform 0.4s;
   width: 2.25rem;
 
   span {
@@ -42,7 +43,7 @@
     margin-top: -1px;
     position: absolute;
     top: 50%;
-    transition: .4s;
+    transition: 0.4s;
     width: 20px;
 
     &:first-child {
@@ -59,7 +60,7 @@
 
 .nav-mob {
   transform: translateX(100%);
-  transition: .4s;
+  transition: 0.4s;
   will-change: transform;
 }
 
@@ -81,7 +82,7 @@
       transform: scaleX(0);
     }
 
-    span:last-child{
+    span:last-child {
       transform: rotate(-45deg) translate(0, 0);
     }
   }
@@ -95,7 +96,7 @@
     display: block !important;
   }
 
-  .icon--moon{
+  .icon--moon {
     display: none;
   }
 }

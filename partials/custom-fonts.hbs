@@ -1,20 +1,20 @@
 {{#if @custom.font_url}}
-    <link rel="preconnect" href="{{@custom.font_url}}" crossorigin />
-    <link href="{{@custom.font_url}}" rel="stylesheet" />
-{{/if}}
+    <link rel="preload" href="{{@custom.font_url}}" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
+    <noscript><link href="{{@custom.font_url}}" rel="stylesheet"></noscript>
 
-{{#if @custom.title_font}}
+    {{#if @custom.title_font}}
     <style>
-        .gh-title {
-            font-family: {{@custom.title_font}}, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+        :root {
+            --font-title: {{@custom.title_font}};
         }
     </style>
-{{/if}}
+    {{/if}}
 
-{{#if @custom.body_font}}
+    {{#if @custom.body_font}}
     <style>
-        body {
-            font-family: {{@custom.body_font}}, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+        :root {
+            --font-body: {{@custom.body_font}};
         }
     </style>
+    {{/if}}
 {{/if}} 

@@ -1,8 +1,8 @@
 {
   "name": "simply",
-  "description": "simply theme for ghost by @GodoFredoNinja",
+  "description": "Simply theme for Ghost, originally created by @GodoFredoNinja – modified and extended by @sagat79",
   "demo": "https://godofredo.ninja",
-  "version": "0.4.4",
+  "version": "0.4.5",
   "engines": {
     "ghost": ">=5.0.0"
   },
@@ -29,6 +29,21 @@
     "ghost-theme",
     "GodoFredoNinja"
   ],
+  "features": {
+    "customFonts": true
+  },
+  "customFonts": {
+    "title": {
+      "name": "Title Font",
+      "description": "Font used for titles and headings",
+      "default": "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif"
+    },
+    "body": {
+      "name": "Body Font",
+      "description": "Font used for body text",
+      "default": "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/godofredoninja/simply"
@@ -72,7 +87,8 @@
           "Default",
           "Drop Down Menu"
         ],
-        "default": "Default"
+        "default": "Default",
+        "group": "navigation"
       },
       "footer": {
         "type": "select",
@@ -81,7 +97,8 @@
           "Dark",
           "No Secondary Navigation"
         ],
-        "default": "Default"
+        "default": "Default",
+        "group": "navigation"
       },
       "color_scheme": {
         "type": "select",
@@ -90,7 +107,8 @@
           "Dark",
           "Auto"
         ],
-        "default": "Auto"
+        "default": "Auto",
+        "group": "design"
       },
       "pagination": {
         "type": "select",
@@ -98,7 +116,8 @@
           "Infinite Scroll",
           "Pagination Number"
         ],
-        "default": "Infinite Scroll"
+        "default": "Infinite Scroll",
+        "group": "post_list"
       },
       "story_meta": {
         "type": "select",
@@ -106,7 +125,8 @@
           "Author",
           "Read More"
         ],
-        "default": "Author"
+        "default": "Author",
+        "group": "post_list"
       },
       "publication_cover": {
         "type": "select",
@@ -197,7 +217,7 @@
     "lint": "yarn lint:js && yarn lint:css",
     "test": "yarn lint && gscan .",
     "scan": "gscan .",
-    "deploy": "gulp deploy"    
+    "deploy": "gulp deploy"
   },
   "devDependencies": {
     "@babel/core": "^7.18.6",
@@ -215,7 +235,7 @@
     "cssnano": "^7.0.0",
     "cssnano-preset-advanced": "^7.0.0",
     "del": "^6.1.1",
-    "dotenv": "^16.0.3",    
+    "dotenv": "^16.0.3",
     "gscan": "^4.31.2",
     "gulp": "^4.0.2",
     "gulp-header": "^2.0.9",
@@ -234,11 +254,22 @@
     "postcss-extend": "^1.0.5",
     "postcss-import": "^15.1.0",
     "postcss-nested": "^7.0.0",
+    "postcss-scss": "^4.0.9",
     "precss": "^4.0.0",
+    "prettier": "^3.5.3",
     "pump": "^3.0.0",
     "standard": "^17.0.0",
     "stylelint": "^16.0.0",
+    "stylelint-config-css-modules": "^4.4.0",
+    "stylelint-config-prettier": "^9.0.5",
+    "stylelint-config-prettier-scss": "^1.0.0",
     "stylelint-config-recommended": "^16.0.0",
+    "stylelint-config-recommended-scss": "^15.0.1",
+    "stylelint-config-standard": "^38.0.0",
+    "stylelint-config-standard-scss": "^15.0.1",
+    "stylelint-order": "^7.0.0",
+    "stylelint-prettier": "^5.0.3",
+    "stylelint-scss": "^6.12.0",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0"
   },

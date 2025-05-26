@@ -3,15 +3,14 @@ html {
 }
 
 body {
-  @apply
-    /* bg-base */
+  @apply /* bg-base */
     font-normal
     leading-normal
     /* text-base */
     text-global;
 
   color: var(--text-base);
-  background-color: var(--bg-base) ;
+  background-color: var(--bg-base);
   letter-spacing: 0;
   margin: 0 auto;
   overflow-x: hidden;
@@ -40,7 +39,7 @@ blockquote:not([class]) {
   /* margin: 2rem 0 2rem -1.5rem; */
   /* padding-bottom: .125rem; */
   padding-left: 4vmin;
-  margin-left: -.25rem;
+  margin-left: -0.25rem;
 
   /* p:first-of-type {
     margin-top: 0;
@@ -57,8 +56,7 @@ blockquote:not([class]) {
 
 cite,
 figcaption {
-  @apply
-    block
+  @apply block
     font-medium
     text-center
     text-gray-500
@@ -66,7 +64,9 @@ figcaption {
 
   @extend %font-sans;
 
-  font-feature-settings: "liga" on, "lnum" on;
+  font-feature-settings:
+    "liga" on,
+    "lnum" on;
   line-height: 1.4em;
   padding: 1rem 1.25rem 0;
   /* width: 100%; */
