@@ -30,7 +30,15 @@
     "GodoFredoNinja"
   ],
   "features": {
-    "customFonts": true
+    "customFonts": true,
+    "i18n": true
+  },
+  "languages": {
+    "en": "English",
+    "bg": "Български",
+    "ko": "한국어",
+    "np": "नेपाली",
+    "hr": "Hrvatski"
   },
   "customFonts": {
     "title": {
