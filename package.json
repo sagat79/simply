@@ -202,6 +202,54 @@
         "type": "text",
         "default": "",
         "group": "fonts"
+      },
+      "show_announcement": {
+        "type": "boolean",
+        "default": false,
+        "group": "announcement"
+      },
+      "announcement_text": {
+        "type": "text",
+        "default": "",
+        "group": "announcement"
+      },
+      "announcement_link": {
+        "type": "text",
+        "default": "",
+        "group": "announcement"
+      },
+      "announcement_button_text": {
+        "type": "text",
+        "default": "",
+        "group": "announcement"
+      },
+      "announcement_background": {
+        "type": "select",
+        "options": [
+          "primary",
+          "black",
+          "white",
+          "gray-100",
+          "gray-900"
+        ],
+        "default": "primary",
+        "group": "announcement"
+      },
+      "announcement_text_color": {
+        "type": "select",
+        "options": [
+          "white",
+          "black",
+          "gray-900",
+          "gray-100"
+        ],
+        "default": "white",
+        "group": "announcement"
+      },
+      "announcement_closeable": {
+        "type": "boolean",
+        "default": true,
+        "group": "announcement"
       }
     }
   },

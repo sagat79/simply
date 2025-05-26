@@ -68,6 +68,8 @@
 </head>
 <body class="{{block "special_body_class"}}">
     {{> "icons/sprite"}}
+    {{!-- Announcement Bar --}}
+    {{> "components/announcement-bar"}}
     <div class="simply-viewport flex flex-col justify-start">
         {{!-- Header Content with User Account ./partials/layout/header-user-account.hbs --}}
         {{#match @custom.header "Default"}}{{> "layout/header"}}{{/match}}
