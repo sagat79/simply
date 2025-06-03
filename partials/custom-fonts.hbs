@@ -1,26 +1,5 @@
-{{#if @custom.font_url}}
-    <link rel="preload" href="{{@custom.font_url}}" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
-    <noscript><link href="{{@custom.font_url}}" rel="stylesheet"></noscript>
-
-    {{#if @custom.title_font}}
-    <style>
-        :root {
-            --font-title: {{@custom.title_font}};
-        }
-    </style>
-    {{/if}}
-
-    {{#if @custom.body_font}}
-    <style>
-        :root {
-            --font-body: {{@custom.body_font}};
-        }
-    </style>
-    {{/if}}
-{{/if}}
-
-{{#if @custom.customFonts}}
-    {{#with @custom.customFonts}}
+{{#if @site.customFonts}}
+    {{#with @site.customFonts}}
         <style>
             :root {
                 --font-title: {{title.default}};
