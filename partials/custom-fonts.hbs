@@ -17,4 +17,15 @@
         }
     </style>
     {{/if}}
+{{/if}}
+
+{{#if @custom.customFonts}}
+    {{#with @custom.customFonts}}
+        <style>
+            :root {
+                --font-title: {{title.default}};
+                --font-body: {{body.default}};
+            }
+        </style>
+    {{/with}}
 {{/if}} 

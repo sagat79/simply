@@ -1,18 +1,20 @@
 {{#if @custom.show_announcement}}
-<div class="announcement-bar text-sm py-2 px-4 text-center relative {{#if @custom.announcement_background}}bg-{{@custom.announcement_background}}{{else}}bg-primary{{/if}} {{#if @custom.announcement_text_color}}text-{{@custom.announcement_text_color}}{{else}}text-white{{/if}}">
+<div class="announcement-bar text-sm py-2 px-4 text-center relative {{#if @custom.announcement_style}}bg-{{@custom.announcement_style}}{{else}}bg-primary{{/if}} {{#if @custom.announcement_text_color}}text-{{@custom.announcement_text_color}}{{else}}text-white{{/if}}">
     <div class="mx-auto max-w-extreme">
-        {{#if @custom.announcement_text}}
-            <span>{{@custom.announcement_text}}</span>
-        {{/if}}
-        {{#if @custom.announcement_link}}
-            <a href="{{@custom.announcement_link}}" class="announcement-link ml-2 underline hover:no-underline">
-                {{#if @custom.announcement_button_text}}
-                    {{@custom.announcement_button_text}}
-                {{else}}
-                    {{t "Learn more"}}
-                {{/if}}
-            </a>
-        {{/if}}
+        {{#with (json @custom.announcement_config)}}
+            {{#if text}}
+                <span>{{text}}</span>
+            {{/if}}
+            {{#if link}}
+                <a href="{{link}}" class="announcement-link ml-2 underline hover:no-underline">
+                    {{#if button_text}}
+                        {{button_text}}
+                    {{else}}
+                        {{t "Learn more"}}
+                    {{/if}}
+                </a>
+            {{/if}}
+        {{/with}}
         {{#if @custom.announcement_closeable}}
             <button class="announcement-close absolute right-4 top-1/2 -translate-y-1/2 hover:opacity-75" aria-label="{{t "Close announcement"}}">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
