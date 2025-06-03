@@ -188,42 +188,17 @@
         "default": "Sign up for more like this",
         "group": "post"
       },
-      "font_url": {
-        "type": "text",
-        "default": "",
-        "group": "fonts"
-      },
-      "title_font": {
-        "type": "text",
-        "default": "",
-        "group": "fonts"
-      },
-      "body_font": {
-        "type": "text",
-        "default": "",
-        "group": "fonts"
-      },
       "show_announcement": {
         "type": "boolean",
         "default": false,
         "group": "announcement"
       },
-      "announcement_text": {
+      "announcement_config": {
         "type": "text",
-        "default": "",
+        "default": "{\"text\":\"\",\"link\":\"\",\"button_text\":\"\"}",
         "group": "announcement"
       },
-      "announcement_link": {
-        "type": "text",
-        "default": "",
-        "group": "announcement"
-      },
-      "announcement_button_text": {
-        "type": "text",
-        "default": "",
-        "group": "announcement"
-      },
-      "announcement_background": {
+      "announcement_style": {
         "type": "select",
         "options": [
           "primary",
