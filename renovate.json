@@ -12,8 +12,10 @@
 	"labels": [
 		"dependencies"
 	],
-  "forkProcessing": "enabled",
-  "baseBranches": ["dev"],
-  "osvVulnerabilityAlerts": true,
+	"forkProcessing": "enabled",
+	"baseBranchPatterns": [
+		"dev"
+	],
+	"osvVulnerabilityAlerts": true,
 	"dependencyDashboardOSVVulnerabilitySummary": "all"
 }
