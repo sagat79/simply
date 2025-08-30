@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2017-2025 GodoFredo <hello@godofredo.ninja>
+SPDX-FileCopyrightText: 2025 Pavel Dimov <@sagat79>
+SPDX-License-Identifier: GPL-3.0-or-later
+-->
+
 # Contributing
 
 :smile: Thank you for contributing to Simply!

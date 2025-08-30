@@ -1,3 +1,9 @@
+/*
+ * SPDX-FileCopyrightText: 2025 2017-2025 GodoFredo <hello@godofredo.ninja>
+ *
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
 /* Root
 /* ---------------------------------------------------------- */
 
@@ -6,16 +12,16 @@
   --font-title: var(--gh-font-heading, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif);
   --font-body: var(--gh-font-body, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif);
 
-  --ghost-accent-color: $primary-color;
+  --ghost-accent-color: #0abe51;
   --color-primary: var(--ghost-accent-color);
   --blank: #fff;
 
   /* Global Color */
   --bg-base: #fff;
-  --text-base: $primary-text-color;
+  --text-base: #292929;
 
   /* Header */
-  --header-text-link: $primary-text-color;
+  --header-text-link: #292929;
   --header-bg: #fff;
 
   /* story */
@@ -27,24 +33,27 @@
   --dropdown-bg: #fff;
 
   /* title */
-  --title-color: $gray-900;
+  --title-color: #18181b;
 
   /* link */
   --color-link: var(--ghost-accent-color);
 
+  /* mark */
+  --color-mark: #fef3c7;
+
   --border-color: #e2ecec;
 
   /* gray */
-  --gray-100: $gray-100;
-  --gray-150: $gray-150;
-  --gray-200: $gray-200;
-  --gray-300: $gray-300;
-  --gray-400: $gray-400;
-  --gray-500: $gray-500;
-  --gray-600: $gray-600;
-  --gray-700: $gray-700;
-  --gray-800: $gray-800;
-  --gray-900: $gray-900;
+  --gray-100: #fafafa;
+  --gray-150: #f8fafc;
+  --gray-200: #f3f5f9;
+  --gray-300: #e0e0e0;
+  --gray-400: #bdbdbd;
+  --gray-500: #757575;
+  --gray-600: #52525b;
+  --gray-700: #616161;
+  --gray-800: #292929;
+  --gray-900: #18181b;
 
   /* Button */
   --button-color: #292929;

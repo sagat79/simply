@@ -1,0 +1,18 @@
+# SPDX-FileCopyrightText: 2017-2025 GodoFredo <hello@godofredo.ninja>
+# SPDX-FileCopyrightText: 2025 Pavel Dimov <@sagat79>
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+# Generated files
+assets/** linguist-generated=true
+dist/** linguist-generated=true
+partials/styles/** linguist-generated=true
+
+# Source files
+src/** linguist-language=CSS
+*.hbs linguist-language=Handlebars
+*.js linguist-language=JavaScript
+*.json linguist-language=JSON
+*.yml linguist-language=YAML
+*.yaml linguist-language=YAML
+*.md linguist-language=Markdown
+*.txt linguist-language=Text

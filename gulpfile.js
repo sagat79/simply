@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2017-2025 GodoFredo <hello@godofredo.ninja>
+// SPDX-FileCopyrightText: 2025 Pavel Dimov <@sagat79>
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+
 const { series, watch, src, dest, parallel } = require('gulp')
 const pump = require('pump')
 const del = require('del')
@@ -7,9 +12,9 @@ const replace = require('gulp-replace')
 
 // gulp plugins and utils
 const livereload = require('gulp-livereload')
-const beeper = require('beeper')
+const beeper = require('beeper').default
 const postcss = require('gulp-postcss')
-const zip = require('gulp-zip')
+const zip = require('gulp-zip').default
 const gulpif = require('gulp-if')
 const sourcemaps = require('gulp-sourcemaps')
 const header = require('gulp-header')
@@ -27,11 +32,11 @@ const cssnano = require('cssnano')
 const autoprefixer = require('autoprefixer')
 const comments = require('postcss-discard-comments')
 const simpleExtend = require('postcss-extend')
-const tailwindcss = require('tailwindcss')
+const tailwindcss = require('@tailwindcss/postcss')
 // const lol = require('postcss-advanced-variables')
 const postImport = require('postcss-import')
 const precss = require('precss')
-const postNesting = require('tailwindcss/nesting') // postcss-nested
+// const postNesting = require('postcss-nested') // postcss-nested - not needed for Tailwind v4
 
 // sass
 // const sass = require('gulp-sass')(require('sass'))
@@ -84,7 +89,7 @@ const postcssPluginsDev = [
   postImport(),
   simpleExtend(),
   precss(),
-  postNesting(),
+  // postNesting(), // Tailwind v4 has built-in nesting support
   tailwindcss()
 ]
 
@@ -146,15 +151,15 @@ function images (done) {
   ], handleError(done))
 }
 
-function copyAmpStyle (done) {
-  pump([
-    src('assets/styles/amp.css'),
-    replace('@charset "UTF-8";', ''),
-    postcss([cssnano(), comments({ removeAll: true })]),
-    rename('amp-styles.hbs'),
-    dest('partials/amp')
-  ], handleError(done))
-}
+// function copyAmpStyle (done) {
+//   pump([
+//     src('assets/styles/amp.css'),
+//     replace('@charset "UTF-8";', ''),
+//     postcss([cssnano(), comments({ removeAll: true })]),
+//     rename('amp-styles.hbs'),
+//     dest('partials/amp')
+//   ], handleError(done))
+// }
 
 function copyMainStyle (done) {
   pump([
@@ -180,6 +185,8 @@ function zipper (done) {
       'LICENSE',
       'package.json',
       'README.md',
+      'CHANGELOG.md',
+      'REUSE.md',
       '!node_modules', '!node_modules/**',
       '!dist', '!dist/**',
       '!src', '!src/**'
@@ -237,7 +244,7 @@ const compile = parallel(styles, scripts, images)
 const watcher = parallel(cssWatcher, jsWatcher, imgWatcher, hbsWatcher)
 
 const build = series(clean, compile)
-const production = series(build, copyAmpStyle, copyMainStyle, zipper)
+const production = series(build, copyMainStyle, zipper)
 // const production = series(build)
 const development = series(build, serve, watcher)
 

@@ -1,11 +1,24 @@
+// SPDX-FileCopyrightText: 2017-2025 GodoFredo <hello@godofredo.ninja>
+// SPDX-FileCopyrightText: 2025 Pavel Dimov <@sagat79>
+// SPDX-License-Identifier: GPL-3.0-or-later
 {
   "extends": [
     "stylelint-config-standard"
   ],
   "ignoreFiles": ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"],
   "rules": {
-    "at-rule-no-unknown": null,
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": ["tailwind", "apply", "screen", "extend"]
+      }
+    ],
     "at-rule-no-deprecated": null,
+    "block-no-redundant-nested-style-rules": null,
+    "media-type-no-deprecated": null,
+    "nesting-selector-no-missing-scoping-root": null,
+    "no-invalid-position-declaration": null,
+    "property-no-deprecated": null,
     "no-descending-specificity": null,
     "property-no-vendor-prefix": null,
     "declaration-block-no-redundant-longhand-properties": null,

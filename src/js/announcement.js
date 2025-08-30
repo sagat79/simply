@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 2017-2025 GodoFredo <hello@godofredo.ninja>
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+
 // Announcement Bar Functionality
 const announcementBar = document.querySelector('.announcement-bar')
 const closeButton = document.querySelector('.announcement-close')
