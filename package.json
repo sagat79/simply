@@ -96,7 +96,7 @@
           "Drop Down Menu"
         ],
         "default": "Default",
-        "group": "navigation"
+        "group": "homepage"
       },
       "footer": {
         "type": "select",
@@ -106,7 +106,7 @@
           "No Secondary Navigation"
         ],
         "default": "Default",
-        "group": "navigation"
+        "group": "homepage"
       },
       "color_scheme": {
         "type": "select",
@@ -116,7 +116,7 @@
           "Auto"
         ],
         "default": "Auto",
-        "group": "design"
+        "group": "homepage"
       },
       "pagination": {
         "type": "select",
@@ -125,7 +125,7 @@
           "Pagination Number"
         ],
         "default": "Infinite Scroll",
-        "group": "post_list"
+        "group": "homepage"
       },
       "story_meta": {
         "type": "select",
@@ -134,7 +134,7 @@
           "Read More"
         ],
         "default": "Author",
-        "group": "post_list"
+        "group": "homepage"
       },
       "publication_cover": {
         "type": "select",
@@ -191,12 +191,12 @@
       "show_announcement": {
         "type": "boolean",
         "default": false,
-        "group": "announcement"
+        "group": "homepage"
       },
       "announcement_config": {
         "type": "text",
         "default": "{\"text\":\"\",\"link\":\"\",\"button_text\":\"\"}",
-        "group": "announcement"
+        "group": "homepage"
       },
       "announcement_style": {
         "type": "select",
@@ -208,7 +208,7 @@
           "gray-900"
         ],
         "default": "primary",
-        "group": "announcement"
+        "group": "homepage"
       },
       "announcement_text_color": {
         "type": "select",
@@ -219,12 +219,12 @@
           "gray-100"
         ],
         "default": "white",
-        "group": "announcement"
+        "group": "homepage"
       },
       "announcement_closeable": {
         "type": "boolean",
         "default": true,
-        "group": "announcement"
+        "group": "homepage"
       }
     }
   },
