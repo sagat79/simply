@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2017-2025 GodoFredo <hello@godofredo.ninja>
+SPDX-FileCopyrightText: 2025 Pavel Dimov <@sagat79>
+SPDX-License-Identifier: GPL-3.0-or-later
+-->
+
 <p align="center">
   <a href="https://godofredo.ninja/ghost-theme/simply/">
     <img src="https://user-images.githubusercontent.com/10253167/103450308-a2757c00-4c82-11eb-8bc3-29b09520fc58.png" width="150px" alt="Simply free theme for Ghost" />

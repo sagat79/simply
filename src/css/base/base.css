@@ -1,3 +1,9 @@
+/*
+ * SPDX-FileCopyrightText: 2025 2017-2025 GodoFredo <hello@godofredo.ninja>
+ *
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
 html {
   @apply text-base;
 }
@@ -7,7 +13,7 @@ body {
     font-normal
     leading-normal
     /* text-base */
-    text-global;
+    text-base;
 
   color: var(--text-base);
   background-color: var(--bg-base);
@@ -108,7 +114,7 @@ img:not([src]) {
 /* ---------------------------------------------------------- */
 
 mark {
-  @apply bg-mark;
+  @apply bg-amber-200;
 
   color: inherit;
 }

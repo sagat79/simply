@@ -1,3 +1,9 @@
+/*
+ * SPDX-FileCopyrightText: 2025 2017-2025 GodoFredo <hello@godofredo.ninja>
+ *
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
 /* Announcement Bar
 /* ---------------------------------------------------------- */
 
@@ -31,7 +37,7 @@
 
 /* Special styles for personal home template */
 .has-cover .announcement-bar {
-    background: rgba(0, 0, 0, 0.5);
+    background: rgb(0 0 0 / 0.5);
     backdrop-filter: blur(5px);
 }
 

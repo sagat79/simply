@@ -1,3 +1,10 @@
+/*
+ * SPDX-FileCopyrightText: 2025 2017-2025 GodoFredo <hello@godofredo.ninja>
+ * SPDX-FileCopyrightText: 2025 2017-2025 GodosFredo <hello@godofredo.ninja>
+ *
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
 /* Variables and Root
 /* ---------------------------------------------------------- */
 @import "./abstracts/variables.css";
@@ -6,7 +13,7 @@
 /* base
 /* ---------------------------------------------------------- */
 
-@import "tailwindcss/base";
+@import "tailwindcss";
 @import "./abstracts/extend.css";
 @import "./base/base.css";
 @import "./base/typography.css";
@@ -17,8 +24,6 @@
 
 /* Components
 /* ---------------------------------------------------------- */
-
-@import "tailwindcss/components";
 
 /* Elements
 /* ---------------------------------------------------------- */
@@ -53,8 +58,6 @@
 
 /* Utilities
 /* ---------------------------------------------------------- */
-
-@import "tailwindcss/utilities";
 
 /* Layout
 /* ---------------------------------------------------------- */

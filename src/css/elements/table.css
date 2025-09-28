@@ -1,3 +1,9 @@
+/*
+ * SPDX-FileCopyrightText: 2025 2017-2025 GodoFredo <hello@godofredo.ninja>
+ *
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
 table {
   @apply text-left font-sans text-sm overflow-x-auto w-auto block max-w-full;
 }
