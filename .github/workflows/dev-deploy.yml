@@ -11,7 +11,7 @@ jobs:
   Deploy-Theme:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Deploy Theme
         uses: TryGhost/action-deploy-theme@v1
         with:
