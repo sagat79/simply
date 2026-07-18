@@ -1,0 +1,145 @@
+/*
+ * SPDX-FileCopyrightText: 2025 2017-2025 GodoFredo <hello@godofredo.ninja>
+ *
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
+/* Matrix live feed widget (matrix-update page) — inherits the post's
+   font (font-serif/font-sans) and theme color variables instead of
+   inline styles, so it renders like the rest of the theme. */
+
+@keyframes matrix-pulse-ping {
+  75%,
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+.matrix-live-badge {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.matrix-live-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--gray-500);
+}
+
+.matrix-live-dot {
+  position: relative;
+  display: flex;
+  height: 7px;
+  width: 7px;
+}
+
+.matrix-live-dot::before,
+.matrix-live-dot::after {
+  content: "";
+  border-radius: 50%;
+}
+
+.matrix-live-dot::before {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: var(--ghost-accent-color);
+  opacity: 0.75;
+  animation: matrix-pulse-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.matrix-live-dot::after {
+  position: relative;
+  height: 7px;
+  width: 7px;
+  background-color: var(--ghost-accent-color);
+}
+
+.matrix-live-label {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.matrix-live-label a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px dashed currentColor;
+}
+
+.matrix-live-links {
+  margin-top: 0.8rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+}
+
+.matrix-live-links img {
+  height: 20px;
+}
+
+.matrix-live-note {
+  margin: 0.8rem auto 0;
+  font-style: italic;
+  color: var(--gray-500);
+  max-width: 500px;
+  line-height: 1.2;
+  font-size: 0.9rem;
+}
+
+.matrix-day-group {
+  margin-bottom: 3rem;
+  text-align: left;
+}
+
+.matrix-day-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.4rem;
+  margin-bottom: 1.5rem;
+  color: var(--gray-500);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.matrix-entry {
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.matrix-time {
+  color: var(--gray-400);
+  font-size: 0.75rem;
+  min-width: 45px;
+  padding-top: 3px;
+}
+
+.matrix-msg {
+  line-height: 1.6;
+  font-size: 0.98rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+  flex: 1;
+}
+
+.matrix-msg a {
+  color: inherit;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.matrix-msg:first-line {
+  font-weight: 600;
+}
+
+.matrix-feed-empty {
+  text-align: center;
+  color: var(--gray-500);
+}

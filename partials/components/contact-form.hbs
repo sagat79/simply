@@ -1,0 +1,30 @@
+{{!--
+SPDX-FileCopyrightText: 2025 2017-2025 GodoFredo <hello@godofredo.ninja>
+
+SPDX-License-Identifier: GPL-3.0-or-later
+--}}
+
+<div class="matrix-chat-wrapper font-sans">
+    <form action="https://backoffice.dimov.xyz/talk" method="POST" class="chat-form">
+        <div class="chat-row flex flex-col">
+            <textarea name="message" class="chat-input-textarea" placeholder="{{t "Type your message here..."}}" required></textarea>
+
+            <div class="user-meta-grid mt-4">
+                <input name="name" type="text" placeholder="{{t "Your Name"}}" required>
+                <input name="matrix" type="text" placeholder="[matrix] ID (e.g. @user:matrix.org)">
+                <input name="email" type="email" placeholder="{{t "Email Address"}}" required>
+            </div>
+
+            <div class="privacy-row mt-6">
+                <input id="privacy" name="privacy" type="checkbox" required>
+                <label for="privacy">
+                    {{t "I'm cool with your"}} <a href="{{@site.url}}/privacy-policy/" target="_blank">{{t "Privacy Policy"}}</a>. {{t "I consent to having this website store my submitted information so they can respond to my inquiry."}}
+                </label>
+            </div>
+
+            <div class="submit-row mt-6 text-right">
+                <button type="submit" class="button is-primary">{{t "Send to Matrix"}}</button>
+            </div>
+        </div>
+    </form>
+</div>

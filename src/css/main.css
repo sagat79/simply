@@ -1,10 +1,3 @@
-/*
- * SPDX-FileCopyrightText: 2025 2017-2025 GodoFredo <hello@godofredo.ninja>
- * SPDX-FileCopyrightText: 2025 2017-2025 GodosFredo <hello@godofredo.ninja>
- *
- * SPDX-License-Identifier: GPL-3.0-or-later
- */
-
 /* Variables and Root
 /* ---------------------------------------------------------- */
 @import "./abstracts/variables.css";
@@ -13,7 +6,7 @@
 /* base
 /* ---------------------------------------------------------- */
 
-@import "tailwindcss";
+@import "tailwindcss/base";
 @import "./abstracts/extend.css";
 @import "./base/base.css";
 @import "./base/typography.css";
@@ -24,6 +17,8 @@
 
 /* Components
 /* ---------------------------------------------------------- */
+
+@import "tailwindcss/components";
 
 /* Elements
 /* ---------------------------------------------------------- */
@@ -39,6 +34,7 @@
 @import "./components/dropdown.css";
 @import "./components/story.css";
 @import "./components/code.css";
+@import "./components/cover-text.css";
 /* @import "./components/modal.css"; */
 
 /* Pages
@@ -47,6 +43,9 @@
 @import "./pages/post.css";
 @import "./pages/kusi-doc-post.css";
 @import "./pages/podcast.css";
+@import "./pages/contact.css";
+@import "./pages/matrix-feed.css";
+@import "./pages/author.css";
 
 /* Cards
 /* ---------------------------------------------------------- */
@@ -58,6 +57,8 @@
 
 /* Utilities
 /* ---------------------------------------------------------- */
+
+@import "tailwindcss/utilities";
 
 /* Layout
 /* ---------------------------------------------------------- */
