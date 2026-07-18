@@ -1,0 +1,22 @@
+/*
+ * SPDX-FileCopyrightText: 2025 2017-2025 GodoFredo <hello@godofredo.ninja>
+ *
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
+/* Legibility for white text placed over an arbitrary cover photo (author
+   hero, tag header, and anywhere else using the .has-photo pattern with
+   partials/components/media-cover.hbs).
+
+   A flat gradient overlay darkens the average brightness but doesn't help
+   against a busy image with bright detail scattered across the frame
+   (circuit boards, city lights, etc.) — a spot right behind a letter can
+   still be brighter than the text itself. A text-shadow holds up
+   regardless of what's directly behind each glyph, so pair the two rather
+   than relying on the overlay alone. */
+
+.cover-text {
+  text-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.55),
+    0 2px 16px rgba(0, 0, 0, 0.35);
+}

@@ -1,0 +1,345 @@
+/*
+ * SPDX-FileCopyrightText: 2025 2017-2025 GodoFredo <hello@godofredo.ninja>
+ *
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
+/* Author profile — an asymmetric "dossier" layout (avatar + stat rail,
+   name + bio + links) instead of a centered hero-photo cliché. Colors
+   come entirely from the theme's existing tokens so it works in light
+   and dark mode without changes. */
+
+.author-hero {
+  padding-top: 3rem;
+  padding-bottom: 1rem;
+}
+
+.author-hero:not(.has-photo) {
+  background-image: radial-gradient(var(--border-color) 1px, transparent 1px);
+  background-size: 22px 22px;
+  background-position: -11px -11px;
+}
+
+.author-hero.has-photo {
+  min-height: 30rem;
+  display: flex;
+  align-items: center;
+  padding-top: 0;
+}
+
+.author-hero-grid {
+  display: grid;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+@media (min-width: 1000px) {
+  .author-hero-grid {
+    grid-template-columns: 15rem 1fr;
+    align-items: center;
+    gap: 3.5rem;
+  }
+}
+
+.author-hero-identity {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+@media (min-width: 1000px) {
+  .author-hero-identity {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+.author-avatar-frame {
+  display: inline-block;
+  border-radius: 9999px;
+  padding: 4px;
+  background: var(--card-bg);
+  box-shadow: 0 0 0 2px var(--ghost-accent-color);
+}
+
+.author-avatar {
+  display: block;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 9999px;
+  object-fit: cover;
+}
+
+.author-stat-rail {
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+}
+
+@media (min-width: 1000px) {
+  .author-stat-rail {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    border-left: 1px solid var(--border-color);
+    padding-left: 1.25rem;
+  }
+}
+
+.author-stat dt {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gray-500);
+  margin-bottom: 0.15rem;
+}
+
+.author-stat dd {
+  margin: 0;
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--title-color);
+  font-variant-numeric: tabular-nums;
+}
+
+.author-hero-content {
+  text-align: center;
+}
+
+@media (min-width: 1000px) {
+  .author-hero-content {
+    text-align: left;
+  }
+}
+
+.author-name {
+  font-size: 2.25rem;
+  line-height: 1.15;
+  color: var(--title-color);
+}
+
+@media (min-width: 1000px) {
+  .author-name {
+    font-size: 3rem;
+  }
+}
+
+.author-bio {
+  margin-top: 1.25rem;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--gray-600);
+  max-width: 46rem;
+}
+
+@media (min-width: 1000px) {
+  .author-bio {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.author-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+}
+
+@media (min-width: 1000px) {
+  .author-links {
+    justify-content: flex-start;
+  }
+}
+
+.author-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-base);
+  transition:
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.author-gpg-fingerprint {
+  margin-top: 0.75rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
+  color: var(--gray-500);
+  text-align: center;
+}
+
+.author-gpg-fingerprint-label {
+  display: block;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.25rem;
+}
+
+@media (min-width: 1000px) {
+  .author-gpg-fingerprint,
+  .author-gpg-fingerprint-label {
+    text-align: left;
+  }
+}
+
+.author-hero.has-photo .author-gpg-fingerprint {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.author-gpg-panel {
+  margin-top: 1rem;
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 1000px) {
+  .author-gpg-panel {
+    margin-left: 0;
+  }
+}
+
+.author-gpg-panel.hidden {
+  display: none;
+}
+
+.author-gpg-panel-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 1rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-bottom: 0;
+  border-radius: 8px 8px 0 0;
+}
+
+.author-gpg-panel-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--gray-500);
+}
+
+.author-gpg-copy {
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ghost-accent-color);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.2rem 0.4rem;
+}
+
+.author-gpg-copy:hover {
+  text-decoration: underline;
+}
+
+.author-gpg-panel pre {
+  margin: 0;
+  border-radius: 0 0 8px 8px;
+  max-height: 20rem;
+  overflow: auto;
+  font-size: 0.7rem;
+  line-height: 1.5;
+}
+
+.author-link:hover {
+  border-color: var(--ghost-accent-color);
+  color: var(--ghost-accent-color);
+}
+
+.author-link .icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.author-social {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+@media (min-width: 1000px) {
+  .author-social {
+    justify-content: flex-start;
+  }
+}
+
+.author-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 999px;
+  color: var(--gray-500);
+  transition:
+    color 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.author-social a:hover {
+  color: var(--ghost-accent-color);
+  background-color: var(--gray-100);
+}
+
+.author-social .icon {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+/* When a cover photo is set, switch to light text over the photo/gradient */
+.author-hero.has-photo .author-stat dt,
+.author-hero.has-photo .author-stat dd,
+.author-hero.has-photo .author-name,
+.author-hero.has-photo .author-bio {
+  color: #fff;
+}
+
+.author-hero.has-photo .author-stat-rail {
+  border-left-color: rgba(255, 255, 255, 0.25);
+}
+
+.author-hero.has-photo .author-avatar-frame {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.author-hero.has-photo .author-link {
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #fff;
+}
+
+.author-hero.has-photo .author-link:hover {
+  border-color: #fff;
+  color: #fff;
+}
+
+.author-hero.has-photo .author-social a {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.author-hero.has-photo .author-social a:hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.12);
+}

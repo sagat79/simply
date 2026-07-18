@@ -1,28 +1,27 @@
-{{!--
-SPDX-FileCopyrightText: 2025 2017-2025 GodoFredo <hello@godofredo.ninja>
-
-SPDX-License-Identifier: GPL-3.0-or-later
---}}
-
 {{!< default}}
 {{!-- The tag above means - insert everything in this file into the {body} of the default.hbs template --}}
 
 {{#tag}}
 
 {{!-- custom Styles For tag <body> --}}
-{{#contentFor "special_body_class"}}is-tag{{/contentFor}}
+{{#contentFor "special_body_class"}}is-tag{{#if feature_image}} has-cover is-head-transparent{{/if}}{{/contentFor}}
 
-<section class="tag py-12 md:py-vw6 bg-gray-150">
-    <div class="mx-auto px-4 max-w-5xl text-center">
-        <h1 class="capitalize text-4xl text-title lg:text-5xl">{{name}}</h1>
+<section class="tag relative overflow-hidden py-12 md:py-vw6{{#if feature_image}} has-photo min-h-96 flex items-center{{else}} bg-gray-150{{/if}}">
+    {{#if feature_image}}
+        {{!-- Featured Media - partials/components/media-cover.hbs --}}
+        {{> "components/media-cover" background=feature_image alt_title=name has_gradient=true}}
+    {{/if}}
+
+    <div class="mx-auto px-4 max-w-5xl text-center relative z-3 w-full{{#if feature_image}} cover-text{{/if}}">
+        <h1 class="capitalize text-4xl lg:text-5xl{{#if feature_image}} text-white{{else}} text-title{{/if}}">{{name}}</h1>
 
         <div class="text-center font-medium mt-8">
-            <a class="hover:text-primary" href="{{@site.url}}">{{t "Home"}}</a>
+            <a class="hover:text-primary{{#if feature_image}} text-white{{/if}}" href="{{@site.url}}">{{t "Home"}}</a>
             <svg class="icon h-3 w-3"><use xlink:href="#icon-arrow-forward"></use></svg>
-            <span class="text-gray-500">{{t "Posts Tagged"}} "{{name}}"</span>
+            <span class="{{#if feature_image}}text-white opacity-80{{else}}text-gray-500{{/if}}">{{t "Posts Tagged"}} "{{name}}"</span>
         </div>
 
-        {{#if description}}<p class="text-xl mt-5 font-serif max-w-xl mx-auto">{{description}}</p>{{/if}}
+        {{#if description}}<p class="text-xl mt-5 font-serif max-w-xl mx-auto{{#if feature_image}} text-white{{/if}}">{{description}}</p>{{/if}}
     </div>
 </section>
 {{/tag}}
