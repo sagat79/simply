@@ -1,16 +1,15 @@
-{{!--
-SPDX-FileCopyrightText: 2025 2017-2025 GodoFredo <hello@godofredo.ninja>
-
-SPDX-License-Identifier: GPL-3.0-or-later
---}}
-
 <footer class="footer pt-10">
     <section class="mx-auto container">
         <div class="row grid gap-16 lg:grid-cols-3 lg:gap-6">
             {{!-- About --}}
             <div class="footer-items">
                 {{!-- <h3 class="text-white mb-5 text-xl">{{t "About Us"}}</h3> --}}
-                <img src="{{asset 'images/dimov-dark.svg'}}" class="mb-5 max-h-9" alt="{{@site.title}}" width="187" height="29">
+                {{#if @site.logo}}
+                    {{!-- This footer variant always has a dark background, so the dark logo (if uploaded) is always preferred here --}}
+                    <img src="{{#if @custom.logo_dark}}{{@custom.logo_dark}}{{else}}{{@site.logo}}{{/if}}" class="mb-5 max-h-9" alt="{{@site.title}}">
+                {{else}}
+                    <span class="text-3xl font-bold text-white">{{@site.title}}</span>
+                {{/if}}
                 <p class="mb-4">{{@site.description}}</p>
 
                 {{!-- Social Media - partilas/widget/social-media.hbs --}}

@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 2017-2025 GodoFredo <hello@godofredo.ninja>
-//
-// SPDX-License-Identifier: GPL-3.0-or-later
-
 (() => {
   const filterBtn = document.querySelectorAll('.js-filter-btn')
 
@@ -31,7 +27,7 @@
 
     // Activating the border in the button menu for the filter
     const current = document.querySelector('.js-filter-btn.border-primary')
-    current.classList.remove('border-primary')
+    if (current) current.classList.remove('border-primary')
     this.classList.add('border-primary')
     // current[0].className = current[0].className.replace(' border-primary', '')
     // this.className += ' border-primary'
