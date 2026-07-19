@@ -1,8 +1,8 @@
 {
   "name": "simply",
-  "description": "Simply theme for Ghost, originally created by @GodoFredoNinja – modified and extended by @sagat79",
-  "demo": "https://godofredo.ninja",
-  "version": "2025.13.10",
+  "description": "A Medium-inspired personal blog theme for Ghost, originally created by GodoFredo and maintained as a fork by Pavel Dimov",
+  "demo": "https://blog-test.dimov.xyz",
+  "version": "3.0.0",
   "engines": {
     "ghost": ">=5.0.0"
   },
@@ -11,9 +11,9 @@
     "desktop": "screenshot.jpg"
   },
   "author": {
-    "name": "GodoFredo",
-    "email": "hello@godofredo.ninja",
-    "url": "https://godofredo.ninja"
+    "name": "Pavel Dimov",
+    "email": "hello@dimov.xyz",
+    "url": "https://dimov.xyz"
   },
   "gpm": {
     "type": "theme",
@@ -27,7 +27,7 @@
     "ghost",
     "theme",
     "ghost-theme",
-    "GodoFredoNinja"
+    "personal-blog"
   ],
   "features": {
     "customFonts": true,
@@ -51,11 +51,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/godofredoninja/simply"
+    "url": "https://github.com/sagat79/simply"
   },
   "bugs": {
-    "url": "https://github.com/godofredoninja/simply/issues",
-    "email": "hello@godofredo.ninja"
+    "url": "https://github.com/sagat79/simply/issues",
+    "email": "hello@dimov.xyz"
   },
   "config": {
     "posts_per_page": 18,
