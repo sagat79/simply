@@ -17,13 +17,19 @@
 # (documented, intentional, prevents recursive workflow runs), and
 # auto-merge.yml used to merge PRs with that same token. auto-merge.yml now
 # merges with a PAT (secrets.AUTOMERGE_PAT) instead, which doesn't carry
-# that restriction — so `push` fires normally again and no schedule/polling
-# fallback is needed here.
+# that restriction — so push-triggered workflows fire normally again.
+#
+# Sequenced after "Deploy Dev Theme" (workflow_run) rather than triggered
+# directly on push: running release and deploy in parallel off the same
+# push meant a release could get tagged even if the live-site deploy
+# failed. Chaining on deploy's completion (success only) guarantees a
+# release always reflects a theme that's actually live.
 name: Release
 
 on:
-  push:
-    branches: [dev]
+  workflow_run:
+    workflows: [Deploy Dev Theme]
+    types: [completed]
   workflow_dispatch: {}
 
 permissions:
@@ -31,10 +37,13 @@ permissions:
 
 jobs:
   release:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.ref }}
 
       - name: Check whether the theme version has already been released
         id: check
@@ -70,5 +79,5 @@ jobs:
           tag="v${{ steps.check.outputs.version }}"
           gh release create "$tag" dist/*.zip \
             --title "$tag" \
-            --target "${{ github.sha }}" \
+            --target "${{ github.event.workflow_run.head_sha || github.sha }}" \
             --generate-notes
