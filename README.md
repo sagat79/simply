@@ -26,7 +26,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 <p align="center">
     A free, Medium-inspired personal blog theme for <a href="https://github.com/tryghost/ghost/">Ghost</a>.
     <br />
-    Originally created by <a href="https://godofredo.ninja">GodoFredo</a>; this fork is maintained by
+    Originally created by GodoFredo; this fork is maintained by
     <a href="https://github.com/sagat79">Pavel Dimov</a>.
 </p>
 
