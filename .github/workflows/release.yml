@@ -10,11 +10,24 @@
 # lands on dev between workflow runs (e.g. a PR merge immediately followed
 # by an auto-merged Renovate PR) — v3.0.0 was silently skipped this way the
 # first time this workflow ran against a real multi-push burst.
+#
+# The `push` trigger alone turned out not to be enough either: GitHub Actions
+# never fires downstream push-triggered workflows for a push made by the
+# default GITHUB_TOKEN (documented, intentional, prevents recursive workflow
+# runs) — and every merge into `dev` now happens via auto-merge.yml using
+# that same token. So `push` almost never actually fires in practice here;
+# the `schedule` trigger below is the real mechanism that keeps this
+# self-healing, with `push`/`workflow_dispatch` as instant paths for the
+# cases that do trigger normally (a human's own commit/merge, or a manual
+# run). The tag-existence check above makes re-running this on a timer
+# completely safe — it's a no-op whenever nothing's actually unreleased.
 name: Release
 
 on:
   push:
     branches: [dev]
+  schedule:
+    - cron: '*/15 * * * *'
   workflow_dispatch: {}
 
 permissions:
