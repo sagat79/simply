@@ -1,6 +1,6 @@
 <!--
 SPDX-FileCopyrightText: 2017-2025 GodoFredo <hello@godofredo.ninja>
-SPDX-FileCopyrightText: 2025 Pavel Dimov <hello@dimov.xyz>
+SPDX-FileCopyrightText: 2025-2026 Pavel Dimov <hello@dimov.xyz>
 SPDX-License-Identifier: GPL-3.0-or-later
 -->
 
@@ -36,6 +36,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
   - Social Media
   - Search
   - Logo Light / Dark Mode
+  - Custom Fonts (title / body)
 - Site wide
   - Header
     - Default
@@ -53,6 +54,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
     - Pagination Number
   - Membership
     - Disable Membership
+  - Announcement Bar
+    - Show / Hide
+    - Style, text color, dismissible
 - Homepage
   - Publication cover
     - None
