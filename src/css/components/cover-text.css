@@ -1,5 +1,5 @@
 /*
- * SPDX-FileCopyrightText: 2025 2017-2025 GodoFredo <hello@godofredo.ninja>
+ * SPDX-FileCopyrightText: 2017-2025 GodoFredo <hello@godofredo.ninja>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -17,6 +17,6 @@
 
 .cover-text {
   text-shadow:
-    0 1px 3px rgba(0, 0, 0, 0.55),
-    0 2px 16px rgba(0, 0, 0, 0.35);
+    0 1px 3px rgb(0, 0, 0, 0.55),
+    0 2px 16px rgb(0, 0, 0, 0.35);
 }

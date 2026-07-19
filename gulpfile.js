@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2017-2025 GodoFredo <hello@godofredo.ninja>
+// SPDX-FileCopyrightText: 2023-2026 Pavel Dimov <pavel@dimov.xyz>
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+
 const { series, watch, src, dest, parallel } = require('gulp')
 const pump = require('pump')
 const { deleteAsync } = require('del')

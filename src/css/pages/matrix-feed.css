@@ -1,5 +1,5 @@
 /*
- * SPDX-FileCopyrightText: 2025 2017-2025 GodoFredo <hello@godofredo.ninja>
+ * SPDX-FileCopyrightText: 2017-2025 GodoFredo <hello@godofredo.ninja>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -125,7 +125,7 @@
   line-height: 1.6;
   font-size: 0.98rem;
   white-space: pre-wrap;
-  word-break: break-word;
+  overflow-wrap: break-word;
   flex: 1;
 }
 
@@ -135,7 +135,7 @@
   font-weight: 600;
 }
 
-.matrix-msg:first-line {
+.matrix-msg::first-line {
   font-weight: 600;
 }
 
