@@ -49,6 +49,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <li itemprop="name">
             <a itemprop="url"
                 href="{{url absolute="true"}}"
+                {{#if current}}aria-current="page"{{/if}}
                 class="mainMenu-link godo-tracking h-16 flex items-center p-3 text-base {{#if current}}active text-primary font-medium{{else}}text-header-link hover:text-primary{{/if}}"
                 data-event-category="Header"
                 data-event-action="Menu"
