@@ -16,15 +16,17 @@
 # ever looking at the diff. External PRs still get full CI feedback; a
 # maintainer just has to click merge themselves.
 #
-# pull_request_target (rather than pull_request) is needed so this also
-# works for fork-originated PRs, which need the base repo's write permission
-# to call the merge API. That's normally the risky half of this trigger, but
-# there's no checkout step here and no PR code ever runs — only the PR
-# number/author from the event payload are read.
+# Plain pull_request (not _target): both actors this is scoped to
+# (repo owner, Renovate) push branches directly into this repo rather than
+# from a fork, so the elevated pull_request_target permissions aren't
+# needed here — and pull_request_target never fired even once in this repo
+# when tried (0 runs of that event type, cause unconfirmed). pull_request
+# gets a read-only default GITHUB_TOKEN on top of that, which is why
+# `permissions: pull-requests: write` below is required explicitly.
 name: Enable auto-merge
 
 on:
-  pull_request_target:
+  pull_request:
     types: [opened, reopened, synchronize]
 
 permissions:
