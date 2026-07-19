@@ -3,9 +3,13 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 # Tags and releases the theme automatically whenever package.json's version
-# changes on dev (matching this repo's existing tag convention, e.g. v2025.6.0
-# — all prior tags were cut from dev, not master). Skips entirely on commits
-# that don't touch the version, so routine merges don't spam empty releases.
+# doesn't already have a matching git tag (matching this repo's existing tag
+# convention, e.g. v2025.6.0 — all prior tags were cut from dev, not master).
+# Checks tag existence rather than diffing against the immediate parent
+# commit: a HEAD~1 diff misses version bumps whenever more than one push
+# lands on dev between workflow runs (e.g. a PR merge immediately followed
+# by an auto-merged Renovate PR) — v3.0.0 was silently skipped this way the
+# first time this workflow ran against a real multi-push burst.
 name: Release
 
 on:
@@ -22,22 +26,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
-        with:
-          fetch-depth: 2
 
-      - name: Check whether the theme version changed
+      - name: Check whether the theme version has already been released
         id: check
         run: |
           current=$(jq -r .version package.json)
-          previous=""
-          if git show HEAD~1:package.json > /tmp/prev-package.json 2>/dev/null; then
-            previous=$(jq -r .version /tmp/prev-package.json)
-          fi
           echo "version=$current" >> "$GITHUB_OUTPUT"
-          if [ "$current" != "$previous" ]; then
-            echo "changed=true" >> "$GITHUB_OUTPUT"
-          else
+          if git ls-remote --exit-code --tags origin "refs/tags/v$current" >/dev/null 2>&1; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Set up Node
