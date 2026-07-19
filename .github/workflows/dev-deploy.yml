@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2025 2017-2025 GodoFredo <hello@godofredo.ninja>
+# SPDX-FileCopyrightText: 2026 Pavel Dimov <pavel@dimov.xyz>
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -11,9 +11,9 @@ jobs:
   Deploy-Theme:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
       - name: Deploy Theme
-        uses: TryGhost/action-deploy-theme@v2
+        uses: TryGhost/action-deploy-theme@fabdc560bd55f2e9316e7cb3d726d77418fdcfa5 # v2
         with:
           api-url: ${{ secrets.GHOST_ADMIN_API_URL }}
           api-key: ${{ secrets.GHOST_ADMIN_API_KEY }}

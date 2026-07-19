@@ -1,5 +1,6 @@
 {{!--
-SPDX-FileCopyrightText: 2025 2017-2025 GodoFredo <hello@godofredo.ninja>
+SPDX-FileCopyrightText: 2017-2025 GodoFredo <hello@godofredo.ninja>
+SPDX-FileCopyrightText: 2023-2026 Pavel Dimov <pavel@dimov.xyz>
 
 SPDX-License-Identifier: GPL-3.0-or-later
 --}}
@@ -10,93 +11,351 @@ SPDX-License-Identifier: GPL-3.0-or-later
 {{#author}}
 
 {{!-- custom Styles For tag <body> --}}
-{{#contentFor "special_body_class"}}is-author has-cover is-head-transparent{{/contentFor}}
+{{#contentFor "special_body_class"}}is-author{{#if cover_image}} has-cover is-head-transparent{{/if}}{{/contentFor}}
 
-{{!-- Author content --}}
-<div class="simply-hero-cover author shadow flex items-center justify-center relative min-h-lg py-24 bg-dark">
+<section class="author-hero relative overflow-hidden{{#if cover_image}} has-photo{{/if}}">
+    {{#if cover_image}}
+    <div class="author-hero-photo absolute inset-0">
+        {{!-- Featured Media - partials/components/media-cover.hbs --}}
+        {{> "components/media-cover" background=cover_image has_gradient=true alt_title=name}}
+    </div>
+    {{/if}}
 
-    {{!-- Featured Media - partials/components/media-cover.hbs --}}
-    {{> "components/media-cover" background=cover_image has_gradient=true alt_title=name}}
+    <div class="author-hero-grid container mx-auto relative z-2 py-vmin8{{#if cover_image}} cover-text{{/if}}">
+        {{!-- Avatar + stat rail --}}
+        <div class="author-hero-identity">
+            <figure class="author-avatar-frame">
+                <img class="author-avatar"
+                    src="{{#if profile_image}}{{img_url profile_image size="s"}}{{else}}{{asset "images/avatar.png"}}{{/if}}"
+                    alt="{{t "Hi I'm"}} {{name}}"
+                    width="168" height="168"
+                />
+            </figure>
 
-    <article class="container relative flex flex-col text-center z-3 pt-16">
-        {{!-- Author name --}}
-        <h1 class="cover-title text-4xl lg:text-5xl my-5 text-white">{{name}}</h1>
+            <dl class="author-stat-rail">
+                <div class="author-stat">
+                    <dt>{{t "Posts"}}</dt>
+                    <dd>{{../pagination.total}}</dd>
+                </div>
 
-        {{!-- Author avatar --}}
-        <figure class="author-avatar relative mx-auto -order-1">
-            <img class="w-52 h-52 rounded-full object-cover"
-                src="{{#if profile_image}}{{img_url profile_image size="s"}}{{else}}{{asset "images/avatar.png"}}{{/if}}"
-                alt="{{t "Hi I'm"}} {{name}}"
-            />
-        </figure>
+                {{#get "posts" filter="authors:[{{slug}}]" limit="1" order="published_at asc" as |first_post|}}
+                {{#foreach first_post}}
+                <div class="author-stat">
+                    <dt>{{t "Since"}}</dt>
+                    <dd>{{date published_at format="YYYY"}}</dd>
+                </div>
+                {{/foreach}}
+                {{/get}}
 
+                {{#if location}}
+                <div class="author-stat">
+                    <dt>{{t "Based in"}}</dt>
+                    <dd>{{location}}</dd>
+                </div>
+                {{/if}}
+            </dl>
+        </div>
 
-        {{!-- author biography --}}
-        {{#if bio}}<p class="cover-des mx-auto mb-8 text-xl text-white max-w-3xl">{{bio}}</p>{{/if}}
+        {{!-- Name, bio, links --}}
+        <div class="author-hero-content">
+            <h1 class="author-name">{{name}}</h1>
 
-        {{!-- Author (Location - website - RSS) --}}
-        <div class="author-meta buttons justify-center">
-            {{#if location}}
-                <span class="author-location button bg-transparent opacity-70 hover:opacity-100 hover:text-white hover:bg-transparent text-white">
-                    <svg class="icon is-stroke"><use xlink:href="#icon-map"></use></svg>
-                    <span>{{location}}</span>
-                </span>
-            {{/if}}
+            {{#if bio}}<p class="author-bio">{{bio}}</p>{{/if}}
 
-            {{#if website}}
-                <a href="{{website}}" class="author-link button bg-transparent opacity-70 hover:opacity-100 hover:text-white hover:bg-transparent text-white" target="_blank" rel="noopener noreferrer">
+            <div class="author-links">
+                {{#if website}}
+                <a href="{{website}}" class="author-link" target="_blank" rel="noopener noreferrer">
                     <svg class="icon is-stroke"><use xlink:href="#icon-link"></use></svg>
                     <span>{{website}}</span>
                 </a>
-            {{/if}}
+                {{/if}}
 
-            <a href="https://feedly.com/i/subscription/feed/{{url absolute="true"}}rss/" class="author-stats button bg-transparent opacity-70 hover:opacity-100 hover:text-white hover:bg-transparent text-white" target="_blank" rel="noopener noreferrer">
-                <svg class="icon"><use xlink:href="#icon-rss"></use></svg>
-                <span>{{plural ../pagination.total empty=(t "No posts") singular=(t "1 post") plural=(t "% posts")}}</span>
-            </a>
-        </div>
-
-        {{!-- Author Facebook and x --}}
-        <div class="author-follow buttons justify-center mt-8">
-            {{#if facebook}}
-            <a href="{{social_url type="facebook"}}" title="Facebook" class="button text-white bg-transparent hover:text-white hover:bg-transparent" target="_blank" rel="noopener noreferrer">
-                <svg class="icon"><use xlink:href="#icon-facebook"></use></svg>
+                <a href="https://feedly.com/i/subscription/feed/{{url absolute="true"}}rss/" class="author-link" target="_blank" rel="noopener noreferrer">
+                    <svg class="icon"><use xlink:href="#icon-rss"></use></svg>
+                    <span>{{t "Subscribe"}}</span>
                 </a>
-            {{/if}}
 
-            {{#if x}}
-            <a href="{{social_url type="x"}}" title="{{x}}" class="button text-white bg-transparent hover:text-white hover:bg-transparent" target="_blank" rel="noopener noreferrer">
-                <svg class="icon"><use xlink:href="#icon-x"></use></svg>
-            </a>
-            {{/if}}
+                {{#match slug "pavel"}}
+                <button type="button" class="author-link js-gpg-toggle" aria-expanded="false" aria-controls="author-gpg-panel">
+                    <svg class="icon"><use xlink:href="#icon-checkmark"></use></svg>
+                    <span>{{t "GPG Key"}}</span>
+                </button>
+                {{/match}}
+            </div>
 
-            {{#if threads}}
-            <a href="{{social_url type="threads"}}" class="button text-white bg-transparent hover:text-white hover:bg-transparent" target="_blank" rel="noopener noreferrer">
-                <svg class="icon"><use xlink:href="#icon-threads"></use></svg>
-            </a>
-            {{/if}}
+            {{#match slug "pavel"}}
+            <p class="author-gpg-fingerprint"><span class="author-gpg-fingerprint-label">{{t "GPG fingerprint"}}</span>14B1 DFFB E91C 4DAD B3DE&nbsp; A1B9 944E E299 2764 56C7</p>
 
-            {{#if bluesky}}
-            <a href="{{social_url type="bluesky"}}" class="button text-white bg-transparent hover:text-white hover:bg-transparent" target="_blank" rel="noopener noreferrer">
-                <svg class="icon"><use xlink:href="#icon-bluesky"></use></svg>
-            </a>
-            {{/if}}
+            <div id="author-gpg-panel" class="author-gpg-panel hidden">
+                <div class="author-gpg-panel-toolbar">
+                    <span class="author-gpg-panel-label">{{t "Public key"}}</span>
+                    <button type="button" class="author-gpg-copy js-gpg-copy" data-label="{{t "Copy"}}" data-label-done="{{t "Copied"}}">{{t "Copy"}}</button>
+                </div>
+                <pre><code id="author-gpg-key-text">-----BEGIN PGP PUBLIC KEY BLOCK-----
 
-            {{#if mastodon}}
-            <a href="{{social_url type="mastodon"}}" class="button text-white bg-transparent hover:text-white hover:bg-transparent" target="_blank" rel="noopener noreferrer">
-                <svg class="icon"><use xlink:href="#icon-mastodon"></use></svg>
-            </a>
-            {{/if}}
+mDMEZrcR4hYJKwYBBAHaRw8BAQdA6E92ejaBHdpDLQ7eFsG9qwv7zIQPb3BmWFVl
+bxxJZ3i0HVBhdmVsIERpbW92IDxwYXZlbEBkaW1vdi54eXo+iJYEExYKAD4CGwMF
+CwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AWIQQUsd/76RxNrbPeobmUTuKZJ2RW
+xwUCZrcSjQIZAQAKCRCUTuKZJ2RWx+2VAPwKZCuVfFifmuhTFsE1N5x0GYr2wZ4V
+tyAgqQqwfBG0WQEAqaNjKzhf4U+3p4Mbge7q1YvnvGu8gDCWMEPOPlx3qwS0HlBh
+dmVsIERpbW92IDxwYXZlbEBkZXJmZWwuZGV2PoiTBBMWCgA7FiEEFLHf++kcTa2z
+3qG5lE7imSdkVscFAma3Ek8CGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AA
+CgkQlE7imSdkVsc2cwD+J5yDo+hZsa8/wokTZSzWooGx2lSF2foX54YAu6DpZikA
+/2ZMTOMP+wK7jjNlhFt5Xx1A0AhkHULWyS9eSmkS7msP0d5o3mYBEAABAQAAAAAA
+AAAAAAAAAP/Y/+AAEEpGSUYAAQEAAEgASAAA/+EAQEV4aWYAAE1NACoAAAAIAAGH
+aQAEAAAAAQAAABoAAAAAAAKgAgAEAAAAAQAAAPqgAwAEAAAAAQAAAPoAAAAA/+0A
+OFBob3Rvc2hvcCAzLjAAOEJJTQQEAAAAAAAAOEJJTQQlAAAAAAAQ1B2M2Y8AsgTp
+gAmY7PhCfv/CABEIAPoA+gMBIgACEQEDEQH/xAAfAAABBQEBAQEBAQAAAAAAAAAD
+AgQBBQAGBwgJCgv/xADDEAABAwMCBAMEBgQHBgQIBnMBAgADEQQSIQUxEyIQBkFR
+MhRhcSMHgSCRQhWhUjOxJGIwFsFy0UOSNIII4VNAJWMXNfCTc6JQRLKD8SZUNmSU
+dMJg0oSjGHDiJ0U3ZbNVdaSVw4Xy00Z2gONHVma0CQoZGigpKjg5OkhJSldYWVpn
+aGlqd3h5eoaHiImKkJaXmJmaoKWmp6ipqrC1tre4ubrAxMXGx8jJytDU1dbX2Nna
+4OTl5ufo6erz9PX29/j5+v/EAB8BAAMBAQEBAQEBAQEAAAAAAAECAAMEBQYHCAkK
+C//EAMMRAAICAQMDAwIDBQIFAgQEhwEAAhEDEBIhBCAxQRMFMCIyURRABjMjYUIV
+cVI0gVAkkaFDsRYHYjVT8NElYMFE4XLxF4JjNnAmRVSSJ6LSCAkKGBkaKCkqNzg5
+OkZHSElKVVZXWFlaZGVmZ2hpanN0dXZ3eHl6gIOEhYaHiImKkJOUlZaXmJmaoKOk
+paanqKmqsLKztLW2t7i5usDCw8TFxsfIycrQ09TV1tfY2drg4uPk5ebn6Onq8vP0
+9fb3+Pn6/9sAQwAMDAwMDAwUDAwUHRQUFB0nHR0dHScxJycnJycxOzExMTExMTs7
+Ozs7Ozs7R0dHR0dHU1NTU1NdXV1dXV1dXV1d/9sAQwEODw8YFhgoFhYoYUI2QmFh
+YWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFh
+/9oADAMBAAIRAxEAAAGSiKpyVJpLN4yoFlW3tUw1JB0xNbbVOiamUzUnbrq2Oq2I
+5JzfUdBZvWwKN05COZLfBrnUv68F8QZCMlSahg+YUjqOY6quSjQCqUaiZKKLm4TP
+80IJxKF1L5hNPz1VuYNfZVgtMapidUbanpBkIiJik11jXVNtVHiwlM1OyqbpKqAE
+OE03ky4tjwiFgoJgZuae6oNVcM6Z66JVDuiY1VadTwgyEQlSaTX2NfSlJiLfTIs7
+aXYLR48KmjNL0UWsuEgtGlk2IqrytXplfgTJCAHciHCUgwG2IRzKeob1SlGsjJUm
+ksH7CiDcABER3d1RW7R7nqadIKBGFGEKiIBmAQ0A7ZsluWpsGzLe85BF/UNm4LtD
+IQLxAJp0QZGWImKTX2FfT9hZ1QMqiat3jOM9iibDZbI1C+DPhCqIvxNDMhm7csF2
+VZZFFOWwqfMXTIWM3ujUaLSrBdEGRliJiorbKsq4oehpAROwWodwkso9U0uwsGFs
+M4YVDfU9LbvksjBxC4PyqkrF3UWhVxR2lbXOLlSmys6hxEBBkZYiYqK2yr6vaq5r
+VZtZtHi6FMJwGFBmkSQg0WVXb1TK7K1fAgavGEr8pRPlLhtZkAWeYCWqaiZ1c6QR
+K0TAksnjQ18ydt0ZDkUhiOa9yHE0YQ1bxRJIuK1qAi1sufcg2rE4RdCyf17Za1qb
+Yy5iYTomplM1zhBkrRsIbZw3NdCYypfZlqU4q1DSuIm4YVs270NzrLqaqqlLkLI9
+PXXQrmssqsrNvTXFEmMArRjTKdXPEGStEwIbR21MpaF0qYc1XAtaOOuKV0GtlVLY
+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
+=C1xH
+-----END PGP PUBLIC KEY BLOCK-----</code></pre>
+            </div>
+            {{/match}}
 
-            {{#if tiktok}}
-            <a href="{{social_url type="tiktok"}}" class="button text-white bg-transparent hover:text-white hover:bg-transparent" target="_blank" rel="noopener noreferrer">
-                <svg class="icon"><use xlink:href="#icon-tiktok"></use></svg>
-            </a>
-            {{/if}}
+            <div class="author-social">
+                {{#if facebook}}<a href="{{social_url type="facebook"}}" title="Facebook" target="_blank" rel="noopener noreferrer"><svg class="icon"><use xlink:href="#icon-facebook"></use></svg></a>{{/if}}
+                {{#if x}}<a href="{{social_url type="x"}}" title="{{x}}" target="_blank" rel="noopener noreferrer"><svg class="icon"><use xlink:href="#icon-x"></use></svg></a>{{/if}}
+                {{#if threads}}<a href="{{social_url type="threads"}}" target="_blank" rel="noopener noreferrer"><svg class="icon"><use xlink:href="#icon-threads"></use></svg></a>{{/if}}
+                {{#if bluesky}}<a href="{{social_url type="bluesky"}}" target="_blank" rel="noopener noreferrer"><svg class="icon"><use xlink:href="#icon-bluesky"></use></svg></a>{{/if}}
+                {{#if mastodon}}<a href="{{social_url type="mastodon"}}" target="_blank" rel="noopener noreferrer"><svg class="icon"><use xlink:href="#icon-mastodon"></use></svg></a>{{/if}}
+                {{#if tiktok}}<a href="{{social_url type="tiktok"}}" target="_blank" rel="noopener noreferrer"><svg class="icon"><use xlink:href="#icon-tiktok"></use></svg></a>{{/if}}
+                {{#match slug "pavel"}}<a href="https://github.com/sagat79" title="GitHub" target="_blank" rel="noopener noreferrer"><svg class="icon"><use xlink:href="#icon-github"></use></svg></a>{{/match}}
+                {{#match slug "pavel"}}<a href="https://matrix.to/#/@pavel:dimov.xyz" title="Matrix" target="_blank" rel="noopener noreferrer"><svg class="icon"><use xlink:href="#icon-matrix"></use></svg></a>{{/match}}
+            </div>
         </div>
-    </article>
-</div>
+    </div>
+</section>
+
+{{!-- Recent posts teaser instead of the full paginated archive --}}
+{{#get "posts" filter="authors:[{{slug}}]" limit="4" order="published_at desc" as |recent_posts|}}
+{{#if recent_posts}}
+<section class="author-recent container mx-auto py-vmin8">
+    <div class="author-recent-header flex items-center justify-between mb-8">
+        <h2 class="text-32 text-title">{{t "Recent posts"}}</h2>
+        <a href="{{@site.url}}/notebook/" class="link is-hover font-medium">{{t "See all in Notebook"}}<svg class="icon is-medium"><use xlink:href="#icon-arrow"></use></svg></a>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {{#foreach recent_posts}}
+            {{> "story/story-card-small"}}
+        {{/foreach}}
+    </div>
+</section>
+{{/if}}
+{{/get}}
+
 {{/author}}
 
-{{!-- The tag below includes the post loop - partials/loop.hbs --}}
-{{>"loop"}}
+{{#contentFor "scripts"}}
+<script>
+(function () {
+    var toggle = document.querySelector('.js-gpg-toggle');
+    var panel = document.getElementById('author-gpg-panel');
+    if (!toggle || !panel) return;
+
+    toggle.addEventListener('click', function () {
+        var expanded = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!expanded));
+        panel.classList.toggle('hidden');
+    });
+
+    var copyBtn = document.querySelector('.js-gpg-copy');
+    var keyText = document.getElementById('author-gpg-key-text');
+    if (!copyBtn || !keyText) return;
+
+    copyBtn.addEventListener('click', function () {
+        var text = keyText.textContent;
+
+        var done = function () {
+            copyBtn.textContent = copyBtn.getAttribute('data-label-done');
+            setTimeout(function () {
+                copyBtn.textContent = copyBtn.getAttribute('data-label');
+            }, 1800);
+        };
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(done);
+        } else {
+            var ta = document.createElement('textarea');
+            ta.value = text;
+            ta.style.position = 'fixed';
+            ta.style.opacity = '0';
+            document.body.appendChild(ta);
+            ta.focus();
+            ta.select();
+            try { document.execCommand('copy'); } catch (e) {}
+            document.body.removeChild(ta);
+            done();
+        }
+    });
+})();
+</script>
+{{/contentFor}}

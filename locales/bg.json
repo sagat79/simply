@@ -85,5 +85,7 @@
   "<strong>Great!</strong> Check your inbox and click the link to confirm your subscription": "<strong>Чудесно!</strong> Проверете пощата си и кликнете върху връзката, за да потвърдите абонамента си",
   "Discussion": "Дискусия",
   "Learn more": "Научете повече",
-  "Close announcement": "Затвори съобщението"
+  "Close announcement": "Затвори съобщението",
+  "Skip to content": "Прескочи към съдържанието",
+  "Recommended <span class='text-primary'>Reading</span>": "Препоръчано <span class='text-primary'>четиво</span>"
 } 

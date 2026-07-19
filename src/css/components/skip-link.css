@@ -1,0 +1,21 @@
+/*
+ * SPDX-FileCopyrightText: 2025 Pavel Dimov <@sagat79>
+ *
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
+.skip-link {
+  position: absolute;
+  top: -3rem;
+  left: 0.5rem;
+  z-index: 9999;
+  padding: 0.5rem 1rem;
+  background: var(--ghost-accent-color);
+  color: #fff;
+  border-radius: 0.25rem;
+  transition: top 0.15s ease-in-out;
+}
+
+.skip-link:focus {
+  top: 0.5rem;
+}

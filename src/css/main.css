@@ -1,70 +1,78 @@
 /*
- * SPDX-FileCopyrightText: 2025 2017-2025 GodoFredo <hello@godofredo.ninja>
- * SPDX-FileCopyrightText: 2025 2017-2025 GodosFredo <hello@godofredo.ninja>
+ * SPDX-FileCopyrightText: 2017-2025 GodoFredo <hello@godofredo.ninja>
+ * SPDX-FileCopyrightText: 2023-2026 Pavel Dimov <pavel@dimov.xyz>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
 /* Variables and Root
 /* ---------------------------------------------------------- */
-@import "./abstracts/variables.css";
-@import "./base/root.css";
+@import url("./abstracts/variables.css");
+@import url("./base/root.css");
 
 /* base
 /* ---------------------------------------------------------- */
 
-@import "tailwindcss";
-@import "./abstracts/extend.css";
-@import "./base/base.css";
-@import "./base/typography.css";
-@import "./base/global.css";
-
-@import "./abstracts/mixins.css";
-@import "./abstracts/constrols.css";
+@import url("tailwindcss/base");
+@import url("./abstracts/extend.css");
+@import url("./base/base.css");
+@import url("./base/typography.css");
+@import url("./base/global.css");
+@import url("./abstracts/mixins.css");
+@import url("./abstracts/constrols.css");
 
 /* Components
 /* ---------------------------------------------------------- */
+
+@import url("tailwindcss/components");
 
 /* Elements
 /* ---------------------------------------------------------- */
 
-@import "./elements/form.css";
-@import "./elements/buttons.css";
-@import "./elements/icon.css";
-@import "./elements/table.css";
+@import url("./elements/form.css");
+@import url("./elements/buttons.css");
+@import url("./elements/icon.css");
+@import url("./elements/table.css");
 
 /* Components
 /* ---------------------------------------------------------- */
 
-@import "./components/dropdown.css";
-@import "./components/story.css";
-@import "./components/code.css";
+@import url("./components/dropdown.css");
+@import url("./components/story.css");
+@import url("./components/code.css");
+@import url("./components/cover-text.css");
+@import url("./components/skip-link.css");
 /* @import "./components/modal.css"; */
 
 /* Pages
 /* ---------------------------------------------------------- */
 
-@import "./pages/post.css";
-@import "./pages/kusi-doc-post.css";
-@import "./pages/podcast.css";
+@import url("./pages/post.css");
+@import url("./pages/kusi-doc-post.css");
+@import url("./pages/podcast.css");
+@import url("./pages/contact.css");
+@import url("./pages/matrix-feed.css");
+@import url("./pages/author.css");
 
 /* Cards
 /* ---------------------------------------------------------- */
 
-@import "./cards/cards.css";
-@import "./cards/gallery.css";
-@import "./cards/blockquote.css";
-@import "./cards/bookmark.css";
+@import url("./cards/cards.css");
+@import url("./cards/gallery.css");
+@import url("./cards/blockquote.css");
+@import url("./cards/bookmark.css");
 
 /* Utilities
 /* ---------------------------------------------------------- */
 
+@import url("tailwindcss/utilities");
+
 /* Layout
 /* ---------------------------------------------------------- */
 
-@import "./layout/header.css";
-@import "./layout/sidebar.css";
-@import "./layout/footer.css";
+@import url("./layout/header.css");
+@import url("./layout/sidebar.css");
+@import url("./layout/footer.css");
 
 /* Variants
 /* ---------------------------------------------------------- */

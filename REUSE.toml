@@ -1,0 +1,45 @@
+# REUSE configuration file
+# SPDX-FileCopyrightText: 2017-2025 GodoFredo <hello@godofredo.ninja>
+# SPDX-FileCopyrightText: 2023-2026 Pavel Dimov <pavel@dimov.xyz>
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+version = 1
+
+# Compiled/generated theme assets (CSS, JS bundles, the main-styles partial,
+# and the npm lockfile) — same license and authorship as the source they're
+# built from, declared here because binary/minified output can't carry an
+# inline comment header.
+[[annotations]]
+path = [
+  "assets/styles/main.css",
+  "assets/scripts/main.js",
+  "assets/scripts/post.js",
+  "assets/scripts/pagination.js",
+  "assets/scripts/prismjs.js",
+  "assets/scripts/kusi-doc-post.js",
+  "partials/main-styles.hbs",
+  "package-lock.json",
+]
+precedence = "aggregate"
+SPDX-FileCopyrightText = ["2017-2025 GodoFredo <hello@godofredo.ninja>", "2023-2026 Pavel Dimov <pavel@dimov.xyz>"]
+SPDX-License-Identifier = "GPL-3.0-or-later"
+
+# Vendored third-party assets — self-hosted instead of loaded from a CDN
+# (see gulpfile.js's prismComponents/vendor tasks), but still under their
+# own upstream licenses, not this theme's.
+[[annotations]]
+path = "assets/scripts/prism-components/*.min.js"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2012 Lea Verou and contributors <https://github.com/PrismJS/prism/graphs/contributors>"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = ["assets/vendor/tiny-slider.js", "assets/vendor/tiny-slider.css"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2019 Ganlanyuan <https://github.com/ganlanyuan>"
+SPDX-License-Identifier = "MIT"
+
+# Theme screenshot and a few binary/JSON files that can't carry inline
+# headers get .license sidecar files instead (see reuse.software/tutorial) —
+# nothing else needed here for those.

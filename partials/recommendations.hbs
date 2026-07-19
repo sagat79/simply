@@ -1,0 +1,52 @@
+{{!--
+SPDX-FileCopyrightText: 2026 Pavel Dimov <@sagat79>
+
+SPDX-License-Identifier: GPL-3.0-or-later
+--}}
+
+{{!-- Overrides the default markup of the {{recommendations}} helper --}}
+<div class="post-recommendations bg-gray-150 py-10">
+    <div class="container mx-auto">
+        <div class="max-w-1100 mx-auto">
+            <h3 class="text-title text-32 mb-10 text-center">
+                {{{t "Recommended <span class='text-primary'>Reading</span>"}}}
+            </h3>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {{#foreach recommendations}}
+                <a href="{{this.url}}"
+                    class="recommendation-card flex flex-col bg-blank rounded shadow transition-all hover:shadow-card-primary overflow-hidden"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-recommendation-id="{{id}}">
+                    {{#if featured_image}}
+                    <img src="{{featured_image}}"
+                        alt=""
+                        class="recommendation-card-img object-cover w-full h-32"
+                        loading="lazy"
+                        decoding="async"
+                        width="350"
+                        height="128"
+                    />
+                    {{/if}}
+
+                    <div class="p-5 flex flex-col grow">
+                        <div class="flex items-center mb-3">
+                            {{#if favicon}}
+                            <img src="{{favicon}}" alt="" class="w-5 h-5 mr-2 rounded-full" width="20" height="20" />
+                            {{/if}}
+                            <span class="text-sm text-gray-500">{{readable_url this.url}}</span>
+                        </div>
+
+                        <h4 class="text-xl text-title leading-tight mb-2">{{title}}</h4>
+
+                        {{#if description}}
+                        <p class="text-gray-500 line-clamp-2">{{description}}</p>
+                        {{/if}}
+                    </div>
+                </a>
+                {{/foreach}}
+            </div>
+        </div>
+    </div>
+</div>

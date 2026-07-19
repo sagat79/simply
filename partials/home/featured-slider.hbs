@@ -1,5 +1,6 @@
 {{!--
-SPDX-FileCopyrightText: 2025 2017-2025 GodoFredo <hello@godofredo.ninja>
+SPDX-FileCopyrightText: 2017-2025 GodoFredo <hello@godofredo.ninja>
+SPDX-FileCopyrightText: 2023-2026 Pavel Dimov <pavel@dimov.xyz>
 
 SPDX-License-Identifier: GPL-3.0-or-later
 --}}
@@ -25,10 +26,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
     {{/if}}
 {{/get}}
 
-{{#contentFor "header"}}<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">{{/contentFor}}
+{{#contentFor "header"}}<link rel="stylesheet" href="{{asset "vendor/tiny-slider.css"}}">{{/contentFor}}
 
 {{#contentFor "scripts"}}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.js" integrity="sha512-j+F4W//4Pu39at5I8HC8q2l1BNz4OF3ju39HyWeqKQagW6ww3ZF9gFcu8rzUbyTDY7gEo/vqqzGte0UPpo65QQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="{{asset "vendor/tiny-slider.js"}}"></script>
 <script>
     var slider = tns({
         container: '.simply-slider',

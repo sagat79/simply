@@ -1,11 +1,9 @@
-// SPDX-FileCopyrightText: 2025 2017-2025 GodoFredo <hello@godofredo.ninja>
+// SPDX-FileCopyrightText: 2017-2025 GodoFredo <hello@godofredo.ninja>
+// SPDX-FileCopyrightText: 2023-2026 Pavel Dimov <pavel@dimov.xyz>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 /* global followSocialMedia menuDropdown localStorage */
-
-// lib
-import 'lazysizes'
 
 // import loadScript from './util/load-script'
 import urlRegexp from './util/url-regular-expression'

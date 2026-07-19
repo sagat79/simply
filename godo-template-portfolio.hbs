@@ -1,5 +1,6 @@
 {{!--
-SPDX-FileCopyrightText: 2025 2017-2025 GodoFredo <hello@godofredo.ninja>
+SPDX-FileCopyrightText: 2017-2025 GodoFredo <hello@godofredo.ninja>
+SPDX-FileCopyrightText: 2023-2026 Pavel Dimov <pavel@dimov.xyz>
 
 SPDX-License-Identifier: GPL-3.0-or-later
 --}}
@@ -64,7 +65,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
       e.preventDefault();
 
       var current = document.querySelector('.js-filter-btn.border-primary');
-      current.classList.remove('border-primary');
+      if (current) current.classList.remove('border-primary');
       this.classList.add('border-primary');
       var dataFilter = btn.getAttribute('data-filter');
       filterSelection(dataFilter);

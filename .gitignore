@@ -23,7 +23,6 @@ results
 
 npm-debug.log
 node_modules
-package-lock.json
 
 .idea/*
 *.iml
@@ -43,3 +42,5 @@ yarn-error.log
 yarn.lock
 
 .env
+
+.security-reports/

@@ -1,18 +1,18 @@
 // SPDX-FileCopyrightText: 2017-2025 GodoFredo <hello@godofredo.ninja>
-// SPDX-FileCopyrightText: 2025 Pavel Dimov <@sagat79>
+// SPDX-FileCopyrightText: 2023-2026 Pavel Dimov <pavel@dimov.xyz>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 const { series, watch, src, dest, parallel } = require('gulp')
 const pump = require('pump')
-const del = require('del')
+const { deleteAsync } = require('del')
 
 const rename = require('gulp-rename')
 const replace = require('gulp-replace')
 
 // gulp plugins and utils
 const livereload = require('gulp-livereload')
-const beeper = require('beeper').default
+const beeper = require('beeper')
 const postcss = require('gulp-postcss')
 const zip = require('gulp-zip').default
 const gulpif = require('gulp-if')
@@ -32,11 +32,11 @@ const cssnano = require('cssnano')
 const autoprefixer = require('autoprefixer')
 const comments = require('postcss-discard-comments')
 const simpleExtend = require('postcss-extend')
-const tailwindcss = require('@tailwindcss/postcss')
+const tailwindcss = require('tailwindcss')
 // const lol = require('postcss-advanced-variables')
 const postImport = require('postcss-import')
 const precss = require('precss')
-// const postNesting = require('postcss-nested') // postcss-nested - not needed for Tailwind v4
+const postNesting = require('tailwindcss/nesting') // postcss-nested
 
 // sass
 // const sass = require('gulp-sass')(require('sass'))
@@ -56,7 +56,7 @@ const BuildComments = `/*!
 
 // clean assets
 const clean = () => {
-  return del([
+  return deleteAsync([
     'assets',
     'partials/styles',
     'dis'
@@ -89,7 +89,7 @@ const postcssPluginsDev = [
   postImport(),
   simpleExtend(),
   precss(),
-  // postNesting(), // Tailwind v4 has built-in nesting support
+  postNesting(),
   tailwindcss()
 ]
 
@@ -145,21 +145,32 @@ function scripts (done) {
 // Image
 function images (done) {
   pump([
-    src('src/img/**/*.*'),
+    src('src/img/**/*.*', { encoding: false }),
     dest('assets/images'),
     livereload()
   ], handleError(done))
 }
 
-// function copyAmpStyle (done) {
-//   pump([
-//     src('assets/styles/amp.css'),
-//     replace('@charset "UTF-8";', ''),
-//     postcss([cssnano(), comments({ removeAll: true })]),
-//     rename('amp-styles.hbs'),
-//     dest('partials/amp')
-//   ], handleError(done))
-// }
+// Prism.js language components, self-hosted from node_modules instead of cdnjs
+function prismComponents (done) {
+  pump([
+    src('node_modules/prismjs/components/*.min.js'),
+    dest('assets/scripts/prism-components'),
+    livereload()
+  ], handleError(done))
+}
+
+// Third-party vendor assets, self-hosted from node_modules instead of cdnjs
+function vendor (done) {
+  pump([
+    src([
+      'node_modules/tiny-slider/dist/min/tiny-slider.js',
+      'node_modules/tiny-slider/dist/tiny-slider.css'
+    ]),
+    dest('assets/vendor'),
+    livereload()
+  ], handleError(done))
+}
 
 function copyMainStyle (done) {
   pump([
@@ -185,12 +196,10 @@ function zipper (done) {
       'LICENSE',
       'package.json',
       'README.md',
-      'CHANGELOG.md',
-      'REUSE.md',
       '!node_modules', '!node_modules/**',
       '!dist', '!dist/**',
       '!src', '!src/**'
-    ], { base: '.' }),
+    ], { base: '.', encoding: false }),
     zip(filename),
     dest('dist')
   ], handleError(done))
@@ -209,7 +218,6 @@ async function deploy (done) {
     const url = process.env.GHOST_API_URL || env.parsed.GHOST_API_URL
     console.log(url)
     const adminApiKey = process.env.GHOST_ADMIN_API_KEY || env.parsed.GHOST_ADMIN_API_KEY
-    console.log(adminApiKey)
     const themeName = process.env.THEME_NAME || require('./package.json').name
     console.log('name =', themeName)
     const apiVersion = process.env.API_VERSION || require('./package.json').engines['ghost-api']
@@ -240,12 +248,11 @@ const imgWatcher = () => watch('src/img/**', images)
 // const hbsWatcher = () => watch(['*.hbs', 'partials/**/*.hbs'], hbs)
 const hbsWatcher = () => watch(['*.hbs', 'partials/**/*.hbs'], styles)
 
-const compile = parallel(styles, scripts, images)
+const compile = parallel(styles, scripts, images, prismComponents, vendor)
 const watcher = parallel(cssWatcher, jsWatcher, imgWatcher, hbsWatcher)
 
 const build = series(clean, compile)
 const production = series(build, copyMainStyle, zipper)
-// const production = series(build)
 const development = series(build, serve, watcher)
 
 module.exports = { build, development, production, deploy }

@@ -1,5 +1,5 @@
 {{!--
-SPDX-FileCopyrightText: 2025 2017-2025 GodoFredo <hello@godofredo.ninja>
+SPDX-FileCopyrightText: 2017-2025 GodoFredo <hello@godofredo.ninja>
 
 SPDX-License-Identifier: GPL-3.0-or-later
 --}}
@@ -26,6 +26,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 {{!-- 6 Related Articles - partials/article/article-related.hbs --}}
 {{> "article/article-related"}}
+
+{{!-- Recommended other sites - partials/recommendations.hbs (overrides {{recommendations}}) --}}
+{{#match @site.recommendations_enabled}}{{recommendations limit="3"}}{{/match}}
 
 {{!-- Post Commets - partials/article/article-comments.hbd --}}
 {{#post}}{{> "article/article-comments"}}{{/post}}

@@ -1,5 +1,6 @@
 /*
- * SPDX-FileCopyrightText: 2025 2017-2025 GodoFredo <hello@godofredo.ninja>
+ * SPDX-FileCopyrightText: 2017-2025 GodoFredo <hello@godofredo.ninja>
+ * SPDX-FileCopyrightText: 2023-2026 Pavel Dimov <pavel@dimov.xyz>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -105,4 +106,16 @@
   .icon--moon {
     display: none;
   }
+
+  .logo-default {
+    display: none !important;
+  }
+
+  .logo-dark-mode {
+    display: block;
+  }
+}
+
+.is-head-transparent:not(.has-menu) .logo-dark-mode {
+  display: block;
 }

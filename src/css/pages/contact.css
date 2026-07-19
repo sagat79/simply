@@ -1,0 +1,77 @@
+/*
+ * SPDX-FileCopyrightText: 2017-2025 GodoFredo <hello@godofredo.ninja>
+ *
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
+/* Matrix contact form — layout only.
+   Input/textarea/button coloring comes from elements/form.css and
+   elements/buttons.css, which already handle light/dark mode. */
+
+.matrix-chat-wrapper {
+  max-width: 850px;
+  margin: 2rem auto;
+}
+
+.matrix-chat-wrapper .chat-input-textarea {
+  border-radius: 1.5rem 1.5rem 0;
+  min-height: 140px;
+  margin-bottom: 15px;
+}
+
+.matrix-chat-wrapper .user-meta-grid {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.matrix-chat-wrapper .user-meta-grid input {
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .matrix-chat-wrapper .user-meta-grid {
+    flex-direction: column;
+  }
+}
+
+.matrix-chat-wrapper .privacy-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 25px 0;
+}
+
+.matrix-chat-wrapper input[type="checkbox"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--input-border-color);
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+  margin-top: 3px;
+  background: var(--input-bg);
+}
+
+.matrix-chat-wrapper input[type="checkbox"]:checked {
+  background-color: var(--ghost-accent-color);
+  border-color: var(--ghost-accent-color);
+}
+
+.matrix-chat-wrapper input[type="checkbox"]:checked::after {
+  content: "\2713";
+  position: absolute;
+  color: #fff;
+  left: 4px;
+  top: -1px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.matrix-chat-wrapper .privacy-row label {
+  font-size: 0.9rem;
+  color: var(--gray-500);
+  line-height: 1.5;
+}

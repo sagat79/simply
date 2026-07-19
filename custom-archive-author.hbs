@@ -1,5 +1,6 @@
 {{!--
-SPDX-FileCopyrightText: 2025 2017-2025 GodoFredo <hello@godofredo.ninja>
+SPDX-FileCopyrightText: 2017-2025 GodoFredo <hello@godofredo.ninja>
+SPDX-FileCopyrightText: 2023-2026 Pavel Dimov <pavel@dimov.xyz>
 
 SPDX-License-Identifier: GPL-3.0-or-later
 --}}
@@ -21,9 +22,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
     {{> "components/media-cover" background=feature_image alt_title=title}}
 
     {{#unless feature_image}}
-    <img class="inset-image blur-up lazyload"
-        src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-        data-src="{{asset "images/simply-title.jpg"}}"
+    <img class="inset-image"
+        src="{{asset "images/simply-title.jpg"}}"
+        fetchpriority="high"
+        decoding="async"
         width="1200"
         height="628"
         alt="{{title}}"
@@ -32,7 +34,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 </header>
 {{/post}}
 
-{{#get "authors" limit="50"}}
+{{#get "authors" limit="100"}}
 
 <div class="container mx-auto grid gap-10 py-vmin8 md:grid-cols-2 lg:grid-cols-4">
     {{#foreach authors}}

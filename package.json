@@ -2,9 +2,9 @@
   "name": "simply",
   "description": "Simply theme for Ghost, originally created by @GodoFredoNinja – modified and extended by @sagat79",
   "demo": "https://godofredo.ninja",
-  "version": "2025.8.0",
+  "version": "2025.13.9",
   "engines": {
-    "ghost": ">=5.0.0,<7.0.0"
+    "ghost": ">=5.0.0"
   },
   "license": "GPL-3.0-or-later",
   "screenshots": {
@@ -95,8 +95,7 @@
           "Default",
           "Drop Down Menu"
         ],
-        "default": "Default",
-        "group": "homepage"
+        "default": "Default"
       },
       "footer": {
         "type": "select",
@@ -105,8 +104,7 @@
           "Dark",
           "No Secondary Navigation"
         ],
-        "default": "Default",
-        "group": "homepage"
+        "default": "Default"
       },
       "color_scheme": {
         "type": "select",
@@ -115,8 +113,10 @@
           "Dark",
           "Auto"
         ],
-        "default": "Auto",
-        "group": "homepage"
+        "default": "Auto"
+      },
+      "logo_dark": {
+        "type": "image"
       },
       "pagination": {
         "type": "select",
@@ -124,8 +124,7 @@
           "Infinite Scroll",
           "Pagination Number"
         ],
-        "default": "Infinite Scroll",
-        "group": "homepage"
+        "default": "Infinite Scroll"
       },
       "story_meta": {
         "type": "select",
@@ -133,8 +132,7 @@
           "Author",
           "Read More"
         ],
-        "default": "Author",
-        "group": "homepage"
+        "default": "Author"
       },
       "publication_cover": {
         "type": "select",
@@ -190,13 +188,11 @@
       },
       "show_announcement": {
         "type": "boolean",
-        "default": false,
-        "group": "homepage"
+        "default": false
       },
       "announcement_config": {
         "type": "text",
-        "default": "{\"text\":\"\",\"link\":\"\",\"button_text\":\"\"}",
-        "group": "homepage"
+        "default": "{\"text\":\"\",\"link\":\"\",\"button_text\":\"\"}"
       },
       "announcement_style": {
         "type": "select",
@@ -207,8 +203,7 @@
           "gray-100",
           "gray-900"
         ],
-        "default": "primary",
-        "group": "homepage"
+        "default": "primary"
       },
       "announcement_text_color": {
         "type": "select",
@@ -218,13 +213,11 @@
           "gray-900",
           "gray-100"
         ],
-        "default": "white",
-        "group": "homepage"
+        "default": "white"
       },
       "announcement_closeable": {
         "type": "boolean",
-        "default": true,
-        "group": "homepage"
+        "default": true
       }
     }
   },
@@ -245,31 +238,30 @@
     "dev": "gulp development",
     "lint:js": "standard src/js/**/*.js gulpfile.js",
     "lint:css": "stylelint src/css/**/*.css",
-    "lint": "yarn lint:js && yarn lint:css",
-    "test": "yarn lint && gscan .",
+    "lint": "npm run lint:js && npm run lint:css",
+    "test": "npm run lint && npm run scan",
     "scan": "gscan .",
     "deploy": "gulp deploy"
   },
   "devDependencies": {
-    "@babel/core": "^8.0.0",
-    "@babel/plugin-transform-runtime": "^8.0.0",
-    "@babel/preset-env": "^8.0.0",
-    "@babel/runtime": "^8.0.0",
+    "@babel/core": "^7.18.6",
+    "@babel/plugin-transform-runtime": "^7.18.6",
+    "@babel/preset-env": "^7.18.6",
+    "@babel/runtime": "^7.18.6",
     "@tailwindcss/line-clamp": "^0.4.0",
-    "@tailwindcss/postcss": "^4.1.12",
     "@tailwindcss/typography": "^0.5.4",
     "@tryghost/admin-api": "^1.13.2",
     "autoprefixer": "^10.4.7",
     "babelify": "^10.0.0",
     "beeper": "^3.0.0",
     "browserify": "^17.0.0",
-    "cross-env": "^10.0.0",
-    "cssnano": "^8.0.0",
-    "cssnano-preset-advanced": "^8.0.0",
-    "del": "^6.1.1",
-    "dotenv": "^17.0.0",
-    "gscan": "^6.0.0",
-    "gulp": "^4.0.2",
+    "cross-env": "^7.0.3",
+    "cssnano": "^7.0.0",
+    "cssnano-preset-advanced": "^7.0.0",
+    "del": "^8.0.0",
+    "dotenv": "^16.0.3",
+    "gscan": "^6.4.2",
+    "gulp": "^5.0.1",
     "gulp-header": "^2.0.9",
     "gulp-if": "^3.0.0",
     "gulp-livereload": "^4.0.2",
@@ -282,7 +274,7 @@
     "gulp-zip": "^6.0.0",
     "merge-stream": "^2.0.0",
     "postcss": "^8.4.14",
-    "postcss-discard-comments": "^8.0.0",
+    "postcss-discard-comments": "^7.0.0",
     "postcss-extend": "^1.0.5",
     "postcss-import": "^15.1.0",
     "postcss-nested": "^7.0.0",
@@ -291,26 +283,25 @@
     "prettier": "^3.5.3",
     "pump": "^3.0.0",
     "standard": "^17.0.0",
-    "stylelint": "^17.0.0",
+    "stylelint": "^16.0.0",
     "stylelint-config-css-modules": "^4.4.0",
-    "stylelint-config-prettier": "^9.0.5",
     "stylelint-config-prettier-scss": "^1.0.0",
-    "stylelint-config-recommended": "^18.0.0",
-    "stylelint-config-recommended-scss": "^17.0.0",
-    "stylelint-config-standard": "^40.0.0",
-    "stylelint-config-standard-scss": "^17.0.0",
-    "stylelint-order": "^8.0.0",
+    "stylelint-config-recommended": "^16.0.0",
+    "stylelint-config-recommended-scss": "^15.0.1",
+    "stylelint-config-standard": "^38.0.0",
+    "stylelint-config-standard-scss": "^15.0.1",
+    "stylelint-order": "^7.0.0",
     "stylelint-prettier": "^5.0.3",
-    "stylelint-scss": "^7.0.0",
+    "stylelint-scss": "^6.12.0",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0"
   },
   "dependencies": {
     "infinite-scroll": "^5.0.0",
-    "lazysizes": "^5.3.2",
     "medium-zoom": "^1.0.6",
     "normalize.css": "^8.0.1",
     "prismjs": "^1.30.0",
-    "tailwindcss": "^4.0.0"
+    "tailwindcss": "^3.4.17",
+    "tiny-slider": "^2.9.4"
   }
 }

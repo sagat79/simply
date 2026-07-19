@@ -1,5 +1,6 @@
 {{!--
-SPDX-FileCopyrightText: 2025 2017-2025 GodoFredo <hello@godofredo.ninja>
+SPDX-FileCopyrightText: 2017-2025 GodoFredo <hello@godofredo.ninja>
+SPDX-FileCopyrightText: 2023-2026 Pavel Dimov <pavel@dimov.xyz>
 
 SPDX-License-Identifier: GPL-3.0-or-later
 --}}
@@ -15,8 +16,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
                 data-event-label="Click"
                 data-event-non-interaction="true">
                 {{#if @site.logo}}
-                    <img src="{{asset "images/dimov-light.svg"}}" class="header-logo-img max-h-9 logo-default" alt="{{@site.title}}" width="115" height="30"/>
-                    <img src="{{asset "images/dimov-dark.svg"}}" class="header-logo-img max-h-9 hidden logo-dark-mode" alt="{{@site.title}}" width="115" height="30"/>
+                    {{#if @custom.logo_dark}}
+                        <img src="{{@site.logo}}" class="header-logo-img max-h-9 logo-default" alt="{{@site.title}}"/>
+                        <img src="{{@custom.logo_dark}}" class="header-logo-img max-h-9 hidden logo-dark-mode" alt="{{@site.title}}"/>
+                    {{else}}
+                        <img src="{{@site.logo}}" class="header-logo-img max-h-9" alt="{{@site.title}}"/>
+                    {{/if}}
                 {{else}}
                     <span class="text-3xl font-bold text-logo">{{@site.title}}</span>
                 {{/if}}
@@ -34,10 +39,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
         <div class="header-right flex-none flex justify-end items-center">
             {{!-- Light and Dark Mode --}}
-            <a role="button" class="js-dark-mode button is-white items-center mr-2" aria-label="Dark and Light Mode">
+            <button type="button" class="js-dark-mode button is-white items-center mr-2" aria-label="Dark and Light Mode">
                 <svg class="icon icon--moon m-0" style="margin-right:calc(-0.5em - 1px)"><use xlink:href="#icon-moon"></use></svg>
                 <svg class="icon icon--sunny m-0 hidden" style="margin-left:calc(-0.5em - 1px)"><use xlink:href="#icon-sunny"></use></svg>
-            </a>
+            </button>
 
             {{!-- Toggle Searcg --}}
             <a href="#/search"
@@ -57,7 +62,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
             {{#if @site.members_enabled}}{{> "layout/account-menu"}}{{/if}}
 
             {{!-- Toggle Menu --}}
-            <a href="javascript:;" role="button" aria-label="Show Navigation Menu" class="js-menu-toggle menu-burger button is-white relative lg:hidden"><span></span><span></span><span></span></a>
+            <button type="button" aria-label="Show Navigation Menu" class="js-menu-toggle menu-burger button is-white relative lg:hidden"><span></span><span></span><span></span></button>
         </div>
     </div>
 </header>
