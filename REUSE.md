@@ -1,5 +1,5 @@
 # SPDX-FileCopyrightText: 2017-2025 GodoFredo <hello@godofredo.ninja>
-# SPDX-FileCopyrightText: 2025 Pavel Dimov <@sagat79>
+# SPDX-FileCopyrightText: 2025 Pavel Dimov <hello@dimov.xyz>
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 # REUSE Compliance Documentation
@@ -19,7 +19,7 @@ The Simply Ghost theme is licensed under **GPL-3.0-or-later** (GNU General Publi
 - Original theme development and master branch code
 
 ### Current Modifications
-- **Copyright (c) 2025 Pavel Dimov <@sagat79>**
+- **Copyright (c) 2025 Pavel Dimov <hello@dimov.xyz>**
 - Dev branch modifications, Ghost 6.x compatibility updates, and REUSE implementation
 
 ## License Files
