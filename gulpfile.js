@@ -140,7 +140,7 @@ function scripts (done) {
 // Image
 function images (done) {
   pump([
-    src('src/img/**/*.*'),
+    src('src/img/**/*.*', { encoding: false }),
     dest('assets/images'),
     livereload()
   ], handleError(done))
@@ -194,7 +194,7 @@ function zipper (done) {
       '!node_modules', '!node_modules/**',
       '!dist', '!dist/**',
       '!src', '!src/**'
-    ], { base: '.' }),
+    ], { base: '.', encoding: false }),
     zip(filename),
     dest('dist')
   ], handleError(done))
