@@ -1,0 +1,66 @@
+# SPDX-FileCopyrightText: 2026 Pavel Dimov <pavel@dimov.xyz>
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+# Tags and releases the theme automatically whenever package.json's version
+# changes on dev (matching this repo's existing tag convention, e.g. v2025.6.0
+# — all prior tags were cut from dev, not master). Skips entirely on commits
+# that don't touch the version, so routine merges don't spam empty releases.
+name: Release
+
+on:
+  push:
+    branches: [dev]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          fetch-depth: 2
+
+      - name: Check whether the theme version changed
+        id: check
+        run: |
+          current=$(jq -r .version package.json)
+          previous=""
+          if git show HEAD~1:package.json > /tmp/prev-package.json 2>/dev/null; then
+            previous=$(jq -r .version /tmp/prev-package.json)
+          fi
+          echo "version=$current" >> "$GITHUB_OUTPUT"
+          if [ "$current" != "$previous" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Set up Node
+        if: steps.check.outputs.changed == 'true'
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        if: steps.check.outputs.changed == 'true'
+        run: npm ci
+
+      - name: Build theme zip
+        if: steps.check.outputs.changed == 'true'
+        run: npm run prod
+
+      - name: Tag and publish release
+        if: steps.check.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          tag="v${{ steps.check.outputs.version }}"
+          gh release create "$tag" dist/*.zip \
+            --title "$tag" \
+            --target "${{ github.sha }}" \
+            --generate-notes
