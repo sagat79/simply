@@ -255,7 +255,7 @@
     "cssnano": "^8.0.0",
     "cssnano-preset-advanced": "^8.0.0",
     "del": "^8.0.0",
-    "dotenv": "^16.0.3",
+    "dotenv": "^17.0.0",
     "gscan": "^6.4.2",
     "gulp": "^5.0.1",
     "gulp-header": "^2.0.9",
