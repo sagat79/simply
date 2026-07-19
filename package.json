@@ -2,7 +2,7 @@
   "name": "simply",
   "description": "Simply theme for Ghost, originally created by @GodoFredoNinja – modified and extended by @sagat79",
   "demo": "https://godofredo.ninja",
-  "version": "2025.13.4",
+  "version": "2025.13.5",
   "engines": {
     "ghost": ">=5.0.0"
   },
@@ -95,8 +95,7 @@
           "Default",
           "Drop Down Menu"
         ],
-        "default": "Default",
-        "group": "navigation"
+        "default": "Default"
       },
       "footer": {
         "type": "select",
@@ -105,8 +104,7 @@
           "Dark",
           "No Secondary Navigation"
         ],
-        "default": "Default",
-        "group": "navigation"
+        "default": "Default"
       },
       "color_scheme": {
         "type": "select",
@@ -115,12 +113,10 @@
           "Dark",
           "Auto"
         ],
-        "default": "Auto",
-        "group": "design"
+        "default": "Auto"
       },
       "logo_dark": {
-        "type": "image",
-        "group": "design"
+        "type": "image"
       },
       "pagination": {
         "type": "select",
@@ -128,8 +124,7 @@
           "Infinite Scroll",
           "Pagination Number"
         ],
-        "default": "Infinite Scroll",
-        "group": "post_list"
+        "default": "Infinite Scroll"
       },
       "story_meta": {
         "type": "select",
@@ -137,8 +132,7 @@
           "Author",
           "Read More"
         ],
-        "default": "Author",
-        "group": "post_list"
+        "default": "Author"
       },
       "publication_cover": {
         "type": "select",
@@ -194,13 +188,11 @@
       },
       "show_announcement": {
         "type": "boolean",
-        "default": false,
-        "group": "announcement"
+        "default": false
       },
       "announcement_config": {
         "type": "text",
-        "default": "{\"text\":\"\",\"link\":\"\",\"button_text\":\"\"}",
-        "group": "announcement"
+        "default": "{\"text\":\"\",\"link\":\"\",\"button_text\":\"\"}"
       },
       "announcement_style": {
         "type": "select",
@@ -211,8 +203,7 @@
           "gray-100",
           "gray-900"
         ],
-        "default": "primary",
-        "group": "announcement"
+        "default": "primary"
       },
       "announcement_text_color": {
         "type": "select",
@@ -222,13 +213,11 @@
           "gray-900",
           "gray-100"
         ],
-        "default": "white",
-        "group": "announcement"
+        "default": "white"
       },
       "announcement_closeable": {
         "type": "boolean",
-        "default": true,
-        "group": "announcement"
+        "default": true
       }
     }
   },
