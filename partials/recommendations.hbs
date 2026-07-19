@@ -14,7 +14,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {{#foreach recommendations}}
-                <a href="{{url}}"
+                <a href="{{this.url}}"
                     class="recommendation-card flex flex-col bg-blank rounded shadow transition-all hover:shadow-card-primary overflow-hidden"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -35,7 +35,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
                             {{#if favicon}}
                             <img src="{{favicon}}" alt="" class="w-5 h-5 mr-2 rounded-full" width="20" height="20" />
                             {{/if}}
-                            <span class="text-sm text-gray-500">{{readable_url url}}</span>
+                            <span class="text-sm text-gray-500">{{readable_url this.url}}</span>
                         </div>
 
                         <h4 class="text-xl text-title leading-tight mb-2">{{title}}</h4>
