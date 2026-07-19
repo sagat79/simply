@@ -23,6 +23,18 @@
 # when tried (0 runs of that event type, cause unconfirmed). pull_request
 # gets a read-only default GITHUB_TOKEN on top of that, which is why
 # `permissions: pull-requests: write` below is required explicitly.
+#
+# Uses a PAT (secrets.AUTOMERGE_PAT), not the default GITHUB_TOKEN, to
+# actually enable auto-merge: GitHub never fires downstream push-triggered
+# workflows for a push/merge performed with the repo's own GITHUB_TOKEN
+# (documented anti-recursion behavior) — which meant ci.yml's re-check,
+# dev-deploy.yml's live-site deploy, and release.yml's auto-tagging all
+# silently stopped firing after a merge the moment auto-merge started using
+# GITHUB_TOKEN. Confirmed via the Actions API: zero event=push runs across
+# all three workflows despite many merges landing on dev in that window.
+# A PAT-authenticated merge doesn't carry that restriction, so this is the
+# actual fix rather than a workaround (schedule/workflow_run polling) bolted
+# onto each downstream workflow individually.
 name: Enable auto-merge
 
 on:
@@ -40,6 +52,6 @@ jobs:
     steps:
       - name: Enable auto-merge for this PR
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.AUTOMERGE_PAT }}
           PR_URL: ${{ github.event.pull_request.html_url }}
         run: gh pr merge --auto --squash "$PR_URL"

@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2017-2025 GodoFredo <hello@godofredo.ninja>
+// SPDX-FileCopyrightText: 2025-2026 Pavel Dimov <hello@dimov.xyz>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
