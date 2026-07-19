@@ -35,10 +35,7 @@
   },
   "languages": {
     "en": "English",
-    "bg": "Български",
-    "ko": "한국어",
-    "np": "नेपाली",
-    "hr": "Hrvatski"
+    "bg": "Български"
   },
   "customFonts": {
     "title": {
