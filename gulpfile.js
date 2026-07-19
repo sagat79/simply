@@ -12,7 +12,6 @@ const replace = require('gulp-replace')
 
 // gulp plugins and utils
 const livereload = require('gulp-livereload')
-const beeper = require('beeper')
 const postcss = require('gulp-postcss')
 const zip = require('gulp-zip').default
 const gulpif = require('gulp-if')
@@ -71,7 +70,8 @@ function serve (done) {
 const handleError = done => {
   return function (err) {
     if (err) {
-      beeper()
+      console.error(err)
+      process.stdout.write('') // terminal bell
     }
     return done(err)
   }
