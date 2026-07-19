@@ -1,0 +1,63 @@
+# SPDX-FileCopyrightText: 2026 Pavel Dimov <pavel@dimov.xyz>
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+name: CI
+
+on:
+  pull_request:
+    branches: [dev, master]
+  push:
+    branches: [dev, master]
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Build, lint, and compatibility checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+
+      - name: Set up Node
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build theme
+        run: npm run prod
+
+      # gulp's own "successful" build once silently corrupted every binary
+      # asset it copied (a gulp 5 / UTF-8 encoding bug) — this step exists
+      # because that shipped once and a green build log alone didn't catch it.
+      - name: Verify built images weren't corrupted
+        run: |
+          fail=0
+          while IFS= read -r -d '' src; do
+            rel="${src#src/img/}"
+            built="assets/images/$rel"
+            if [ ! -f "$built" ]; then
+              echo "::error file=${built}::Missing from build output"
+              fail=1
+            elif ! cmp -s "$src" "$built"; then
+              echo "::error file=${built}::Built image differs from source (possible binary corruption in the build)"
+              fail=1
+            fi
+          done < <(find src/img -type f -print0)
+          exit "$fail"
+
+      - name: Lint (JS + CSS)
+        run: npm run lint
+
+      - name: Ghost theme compatibility (gscan)
+        run: npm run scan
+
+      - name: REUSE compliance (SPDX headers)
+        uses: fsfe/reuse-action@676e2d560c9a403aa252096d99fcab3e1132b0f5 # v6.0.0

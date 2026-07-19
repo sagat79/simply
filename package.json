@@ -2,7 +2,7 @@
   "name": "simply",
   "description": "Simply theme for Ghost, originally created by @GodoFredoNinja – modified and extended by @sagat79",
   "demo": "https://godofredo.ninja",
-  "version": "2025.13.8",
+  "version": "2025.13.9",
   "engines": {
     "ghost": ">=5.0.0"
   },
@@ -238,8 +238,8 @@
     "dev": "gulp development",
     "lint:js": "standard src/js/**/*.js gulpfile.js",
     "lint:css": "stylelint src/css/**/*.css",
-    "lint": "yarn lint:js && yarn lint:css",
-    "test": "yarn lint && gscan .",
+    "lint": "npm run lint:js && npm run lint:css",
+    "test": "npm run lint && npm run scan",
     "scan": "gscan .",
     "deploy": "gulp deploy"
   },

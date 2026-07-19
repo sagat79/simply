@@ -1,0 +1,43 @@
+# SPDX-FileCopyrightText: 2026 Pavel Dimov <pavel@dimov.xyz>
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+# Opts a PR into GitHub's native auto-merge the moment it's opened, so it
+# merges itself as soon as required checks (see ci.yml) go green — no bot
+# workflow polling, no custom merge logic. Requires "Allow auto-merge" to be
+# turned on for the repo, and a branch protection rule on the target branch
+# that lists the CI job as a required status check (otherwise there's
+# nothing for auto-merge to wait for).
+#
+# Scoped to the repo owner and Renovate only. This repo takes outside
+# contributions (see git history) — CI here checks build/lint/compatibility/
+# license-headers, not code review, so blanket auto-merge on every fork PR
+# would let anyone whose PR happens to pass lint land in `dev` with no human
+# ever looking at the diff. External PRs still get full CI feedback; a
+# maintainer just has to click merge themselves.
+#
+# pull_request_target (rather than pull_request) is needed so this also
+# works for fork-originated PRs, which need the base repo's write permission
+# to call the merge API. That's normally the risky half of this trigger, but
+# there's no checkout step here and no PR code ever runs — only the PR
+# number/author from the event payload are read.
+name: Enable auto-merge
+
+on:
+  pull_request_target:
+    types: [opened, reopened, synchronize]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  enable-auto-merge:
+    if: github.event.pull_request.user.login == 'sagat79' || github.event.pull_request.user.login == 'renovate[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Enable auto-merge for this PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+        run: gh pr merge --auto --squash "$PR_URL"
