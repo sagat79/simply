@@ -32,91 +32,115 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 ## Featured
 
-- Simply Settings
-  - Social Media
-  - Search
-  - Logo Light / Dark Mode
-  - Custom Fonts (title / body)
-- Site wide
-  - Header
-    - Default
-    - DropDown Menu
-  - Footer
-    - Default
-    - Dark
-    - No Secondary Navigation
-  - Color Scheme
-    - Auto (default)
-    - Dark Mode
-    - Light Mode
-  - Pagination
-    - Infinite Scroll (default)
-    - Pagination Number
-  - Membership
-    - Disable Membership
-  - Announcement Bar
-    - Show / Hide
-    - Style, text color, dismissible
-- Homepage
-  - Publication cover
-    - None
-    - Featured -> Latest Featured Article
-    - Featured Slider -> 3 Latest Articles
-    - Cover (default)
-      - Publication cover title
-      - Publication cover description
-      - Publication cover color
-      - Publication cover img
-- Post
-  - Post Font
-    - font-serif (default)
-    - font-sans
-  - Newsletter
-    - Show / Hide
-    - Newsletter Text
-  - Comments via [Ghost's native commenting](https://ghost.org/help/commenting/)
-- Publication Language
-  - `en` — English (default)
-  - `bg` — Български
-- Home Page
-  - Default
-  - Personal
-  - Archive
-- Post Format
-  - Post Default
-  - Post Full
-  - Post Wide
-  - Post Header Image
-  - Post Image
-  - Post Image Right
-  - Post Sidebar
-  - Post not Image
-  - Post Toc
-- Page Format
-  - Page Default
-  - Page Toc
-- Page
-  - Contact
-  - Podcast
-  - Portfolio
-  - 404
+A quick tour of what ships out of the box, plus every setting broken down by category.
+
+| Feature | What it does |
+| --- | --- |
+| 🏠 3 home layouts | Default, Personal (hero cover), and Archive — switch per-route via `routes.yaml` |
+| 📝 9 post formats | Full, Wide, Header Image, Image, Image Right, Sidebar, Not Image, ToC, Default — picked per-post in Ghost Admin |
+| 🌓 Light/dark logo | Separate logo images per color scheme, swapped automatically |
+| 📣 Announcement bar | Dismissible site-wide banner with configurable color and text |
+| 📚 Kusi Doc | A documentation-hub template — built for this fork's Matrix homeserver docs, reusable for any project |
+| 💬 Native comments | [Ghost's own commenting system](https://ghost.org/help/commenting/), no third-party embed |
+| 🌍 en / bg | Fully translated in English and Bulgarian |
+| ⚡ Lazy-loaded images | Every image below the fold, out of the box |
+
+<details open>
+<summary>🎨 Theme settings</summary>
+
+- Social media links, search, custom title/body fonts
+
+**Header**
+- Default
+- Drop-down menu
+
+**Footer**
+- Default
+- Dark
+- No secondary navigation
+
+**Color scheme**
+- Auto (default)
+- Dark
+- Light
+
+**Pagination**
+- Infinite scroll (default)
+- Numbered pages
+
+**Announcement bar**
+- Show / hide, style, text color, dismissible
+
+**Membership**
+- Can be fully disabled
+
+</details>
+
+<details>
+<summary>🏠 Homepage &amp; layouts</summary>
+
+**Home page**
+- Default
+- Personal
 - Archive
-  - Authors Page
-  - Tags Page
-- Kusi Doc — a documentation-hub template for your project
-- Post and Page
-  - [Prism supported syntax highlighting](https://prismjs.com/index.html#supported-languages)
-  - Medium-style image zoom
-  - Responsive video embeds (YouTube, Vimeo, and anything else Ghost's native embed cards support)
-- Post Content
-  - Related Articles
-  - Social share buttons support for posts
-  - Previous and next Post
-- Sidebar
-  - 3 featured articles on the home page
-  - 3 latest articles
-  - Tag Cloud
-- Lazy loading for images
+
+**Publication cover (Default layout)**
+- None
+- Featured — latest featured article
+- Featured Slider — 3 latest articles
+- Cover (default) — title, description, color, image
+
+</details>
+
+<details>
+<summary>📝 Posts &amp; pages</summary>
+
+**Post format**
+- Default, Full, Wide, Header Image, Image, Image Right, Sidebar, Not Image, ToC
+
+**Post settings**
+- Font: serif (default) or sans
+- Newsletter block: show/hide, custom text
+- Related articles, previous/next post, social share buttons
+
+**Page format**
+- Default
+- Table of contents
+
+**Page templates**
+- Contact
+- Podcast
+- Portfolio
+- 404
+
+</details>
+
+<details>
+<summary>🗂️ Archives &amp; docs</summary>
+
+- Author archive page
+- Tag archive page
+- Kusi Doc — documentation-hub collection template
+
+</details>
+
+<details>
+<summary>✨ Content &amp; media</summary>
+
+- [Prism syntax highlighting](https://prismjs.com/index.html#supported-languages), all languages
+- Medium-style image zoom
+- Responsive video embeds (YouTube, Vimeo, and anything Ghost's native embed cards support)
+
+</details>
+
+<details>
+<summary>📌 Sidebar</summary>
+
+- 3 featured articles on the home page
+- 3 latest articles
+- Tag cloud
+
+</details>
 
 ## Automate theme deployment via Ghost API
 
