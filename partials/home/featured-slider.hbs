@@ -6,11 +6,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 --}}
 
 {{!-- Featured Story --}}
-{{#get "posts" limit="3" filter="featured:true" as |godo_featured_post| }}
-    {{#if godo_featured_post}}
+{{#get "posts" limit="3" filter="featured:true" as |featured_post| }}
+    {{#if featured_post}}
     <div class="relative overflow-hidden">
         <div class="simply-slider flex overflow-hidden">
-            {{#foreach godo_featured_post}}
+            {{#foreach featured_post}}
                 {{> "story/story-featured"}}
             {{/foreach}}
         </div>

@@ -36,10 +36,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
                 {{/if}}
             </header>
 
-            <section id="post-body" class="post-body relative godo-canvas {{#match @custom.post_font "=" "font-serif"}}font-serif{{else}}font-sans{{/match}}">{{content}}</section>
+            <section id="post-body" class="post-body relative content-canvas {{#match @custom.post_font "=" "font-serif"}}font-serif{{else}}font-sans{{/match}}">{{content}}</section>
 
             {{!-- Tags - ./partials/components/tags,hbs --}}
-            <footer class="post-footer godo-canvas pt-10">
+            <footer class="post-footer content-canvas pt-10">
                 {{> "components/tags"}}
 
                 {{!-- Social Share - ./partials/components/social-share --}}
