@@ -2,7 +2,7 @@
   "name": "simply",
   "description": "Simply theme for Ghost, originally created by @GodoFredoNinja – modified and extended by @sagat79",
   "demo": "https://godofredo.ninja",
-  "version": "2025.13.5",
+  "version": "2025.13.6",
   "engines": {
     "ghost": ">=5.0.0"
   },
@@ -285,7 +285,6 @@
     "standard": "^17.0.0",
     "stylelint": "^16.0.0",
     "stylelint-config-css-modules": "^4.4.0",
-    "stylelint-config-prettier": "^9.0.5",
     "stylelint-config-prettier-scss": "^1.0.0",
     "stylelint-config-recommended": "^16.0.0",
     "stylelint-config-recommended-scss": "^15.0.1",
