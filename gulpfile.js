@@ -167,16 +167,6 @@ function vendor (done) {
   ], handleError(done))
 }
 
-function copyAmpStyle (done) {
-  pump([
-    src('assets/styles/amp.css'),
-    replace('@charset "UTF-8";', ''),
-    postcss([cssnano(), comments({ removeAll: true })]),
-    rename('amp-styles.hbs'),
-    dest('partials/amp')
-  ], handleError(done))
-}
-
 function copyMainStyle (done) {
   pump([
     src('assets/styles/main.css'),
@@ -257,8 +247,7 @@ const compile = parallel(styles, scripts, images, prismComponents, vendor)
 const watcher = parallel(cssWatcher, jsWatcher, imgWatcher, hbsWatcher)
 
 const build = series(clean, compile)
-const production = series(build, copyAmpStyle, copyMainStyle, zipper)
-// const production = series(build)
+const production = series(build, copyMainStyle, zipper)
 const development = series(build, serve, watcher)
 
 module.exports = { build, development, production, deploy }
