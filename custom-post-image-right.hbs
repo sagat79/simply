@@ -47,5 +47,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 {{!-- 6 Related Articles - partials/article/article-related.hbs --}}
 {{> "article/article-related"}}
 
+{{!-- Recommended other sites - partials/recommendations.hbs (overrides {{recommendations}}) --}}
+{{#match @site.recommendations_enabled}}{{recommendations limit="3"}}{{/match}}
+
 {{!-- Post Commets - partials/article/article-comments.hbd --}}
 {{#post}}{{> "article/article-comments"}}{{/post}}
