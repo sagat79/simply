@@ -1,6 +1,6 @@
 const { series, watch, src, dest, parallel } = require('gulp')
 const pump = require('pump')
-const del = require('del')
+const { deleteAsync } = require('del')
 
 const rename = require('gulp-rename')
 const replace = require('gulp-replace')
@@ -51,7 +51,7 @@ const BuildComments = `/*!
 
 // clean assets
 const clean = () => {
-  return del([
+  return deleteAsync([
     'assets',
     'partials/styles',
     'dis'

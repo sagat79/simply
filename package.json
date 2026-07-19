@@ -2,7 +2,7 @@
   "name": "simply",
   "description": "Simply theme for Ghost, originally created by @GodoFredoNinja – modified and extended by @sagat79",
   "demo": "https://godofredo.ninja",
-  "version": "2025.13.7",
+  "version": "2025.13.8",
   "engines": {
     "ghost": ">=5.0.0"
   },
@@ -258,7 +258,7 @@
     "cross-env": "^7.0.3",
     "cssnano": "^7.0.0",
     "cssnano-preset-advanced": "^7.0.0",
-    "del": "^6.1.1",
+    "del": "^8.0.0",
     "dotenv": "^16.0.3",
     "gscan": "^6.4.2",
     "gulp": "^5.0.1",
