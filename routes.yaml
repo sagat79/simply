@@ -16,7 +16,7 @@ routes:
 
   /personal/:
     template: home-personal
-    data: page.godo-personal
+    data: page.home-personal
 
   /podcast/rss/:
     template: podcast/rss
