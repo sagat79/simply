@@ -13,7 +13,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
         {{#foreach navigation}}
         <li itemprop="name" role="menuitem" class="inline-block {{#unless @last}}separator{{/unless}}">
             <a itemprop="url" href="{{url absolute="true"}}"
-                class="godo-tracking hover:text-primary font-medium p-2 inline-block"
+                class="tracking-event hover:text-primary font-medium p-2 inline-block"
                 data-event-category="Footer"
                 data-event-action="Menu"
                 data-event-label="{{label}}"
@@ -50,7 +50,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
             <a itemprop="url"
                 href="{{url absolute="true"}}"
                 {{#if current}}aria-current="page"{{/if}}
-                class="mainMenu-link godo-tracking h-16 flex items-center p-3 text-base {{#if current}}active text-primary font-medium{{else}}text-header-link hover:text-primary{{/if}}"
+                class="mainMenu-link tracking-event h-16 flex items-center p-3 text-base {{#if current}}active text-primary font-medium{{else}}text-header-link hover:text-primary{{/if}}"
                 data-event-category="Header"
                 data-event-action="Menu"
                 data-event-label="{{label}}"

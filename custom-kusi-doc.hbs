@@ -37,7 +37,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
     {{!-- content of the documentation --}}
     <article class="max-w-3xl mx-auto py-vmin8 md:px-4">
-        <section class="post-body godo-canvas pt-0 font-sans has-sidebar text-base js-kusi-doc">
+        <section class="post-body content-canvas pt-0 font-sans has-sidebar text-base js-kusi-doc">
             <h1 id="{{slug}}" class="text-title">{{title}}</h1>
             {{#if custom_excerpt}}
             <p class="post-excerpt text-xl text-gray-500">{{custom_excerpt}}</p>
@@ -48,7 +48,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
             {{!-- Button to edit on GitHub - add link on Facebook description --}}
             {{#if og_description}}
             <p class="mt-10">
-                <a class="edit-on-github godo-tracking button"
+                <a class="edit-on-github tracking-event button"
                     href="{{og_description}}"
                     data-event-category="Kusi Doc"
                     data-event-action="{{tags.[0].name}}"

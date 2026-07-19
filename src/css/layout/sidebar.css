@@ -5,6 +5,6 @@
  */
 
 /* Sidebar */
-.godo-content-side {
+.content-side {
   grid-column: wide-start/main-start;
 }

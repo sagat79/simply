@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-.godo-canvas {
+.content-canvas {
   display: grid;
   grid-template-columns: [full-start] minmax(4vmin,auto) [wide-start] minmax(auto,240px) [main-start] min(680px,calc(100% - 8vw)) [main-end] minmax(auto,240px) [wide-end] minmax(4vmin,auto) [full-end];
 
@@ -13,7 +13,7 @@
   }
 }
 
-.is-canvas-full .godo-canvas > * {
+.is-canvas-full .content-canvas > * {
   grid-column: full-start / full-end;
 }
 

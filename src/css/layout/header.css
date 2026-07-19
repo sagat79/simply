@@ -33,6 +33,14 @@
 
 .is-head-transparent:not(.has-menu) {
   --header-text-link: #fff;
+
+  .logo-default {
+    display: none !important;
+  }
+
+  .logo-dark-mode {
+    display: block;
+  }
 }
 
 /* Hamburger Button for Toggle menu
@@ -114,8 +122,4 @@
   .logo-dark-mode {
     display: block;
   }
-}
-
-.is-head-transparent:not(.has-menu) .logo-dark-mode {
-  display: block;
 }
