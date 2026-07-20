@@ -1,0 +1,41 @@
+{{!--
+SPDX-FileCopyrightText: 2026 Pavel Dimov <hello@dimov.xyz>
+
+SPDX-License-Identifier: GPL-3.0-or-later
+--}}
+
+{{!-- Off by default: only strictly-necessary cookies are set today, so no consent banner
+is legally required. Flip the literal `false` below to `true` if a non-essential cookie
+is ever added. Not wired to config.custom because package.json's config.custom is already
+at Ghost's hard 20-setting limit (gscan errors past that). --}}
+{{#if false}}
+<div class="cookie-notice text-sm py-3 px-4 fixed bottom-0 inset-x-0 z-50 bg-gray-900 text-white">
+    <div class="mx-auto max-w-extreme flex flex-wrap items-center justify-between gap-3">
+        <span>{{t "We only use strictly necessary cookies. See our Cookie Policy for details."}}</span>
+        <div class="flex items-center gap-3 shrink-0">
+            <a href="/cookie/" class="underline hover:no-underline">{{t "Cookie Policy"}}</a>
+            <button class="cookie-notice-accept bg-primary text-white px-4 py-1.5 rounded hover:opacity-90" aria-label="{{t "Accept cookies"}}">
+                {{t "Accept"}}
+            </button>
+        </div>
+    </div>
+</div>
+<script>
+(function () {
+    var notice = document.querySelector('.cookie-notice')
+    var accept = document.querySelector('.cookie-notice-accept')
+
+    if (!notice || !accept) return
+
+    if (localStorage.getItem('cookie-notice-accepted') === 'true') {
+        notice.classList.add('hidden')
+        return
+    }
+
+    accept.addEventListener('click', function () {
+        notice.classList.add('hidden')
+        localStorage.setItem('cookie-notice-accepted', 'true')
+    })
+})()
+</script>
+{{/if}}
