@@ -17,6 +17,29 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <h1 class="post-title text-32 md:text-4xl lg:text-44 text-title leading-tight">{{title}}</h1>
         {{#if custom_excerpt}}<p class="post-excerpt mt-6 text-22 text-gray-500">{{custom_excerpt}}</p>{{/if}}
 
+        {{!-- Deliverable #4 of the GDPR pass: auto-generated so it can never go stale
+        the way a hand-typed date in the page content can (and did, for /cookie/).
+        Slug-gated to the three legal pages only -- repeated per-slug rather than a
+        single OR check, matching this theme's own established pattern for slug-only
+        content (see author.hbs's `{{#match slug "pavel"}}` blocks). --}}
+        {{#match slug "privacy-policy"}}
+        <p class="post-legal-dates mt-4 text-sm text-gray-500">
+            {{t "Effective Date"}}: {{date published_at format="MMMM D, YYYY"}}<br>
+            {{t "Last Updated"}}: {{date updated_at format="MMMM D, YYYY"}}
+        </p>
+        {{/match}}
+        {{#match slug "cookie"}}
+        <p class="post-legal-dates mt-4 text-sm text-gray-500">
+            {{t "Effective Date"}}: {{date published_at format="MMMM D, YYYY"}}<br>
+            {{t "Last Updated"}}: {{date updated_at format="MMMM D, YYYY"}}
+        </p>
+        {{/match}}
+        {{#match slug "terms-of-service"}}
+        <p class="post-legal-dates mt-4 text-sm text-gray-500">
+            {{t "Effective Date"}}: {{date published_at format="MMMM D, YYYY"}}<br>
+            {{t "Last Updated"}}: {{date updated_at format="MMMM D, YYYY"}}
+        </p>
+        {{/match}}
     </header>
 
     <section id="post-body" class="post-body content-canvas mx-auto relative {{#match @custom.post_font "=" "font-serif"}}font-serif{{else}}font-sans{{/match}}">
