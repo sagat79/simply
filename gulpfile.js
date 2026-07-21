@@ -32,9 +32,9 @@ const autoprefixer = require('autoprefixer')
 const comments = require('postcss-discard-comments')
 const simpleExtend = require('postcss-extend')
 const tailwindcss = require('tailwindcss')
-// const lol = require('postcss-advanced-variables')
+const advancedVariables = require('postcss-advanced-variables')
 const postImport = require('postcss-import')
-const precss = require('precss')
+const postcssPresetEnv = require('postcss-preset-env')
 const postNesting = require('tailwindcss/nesting') // postcss-nested
 
 // sass
@@ -87,8 +87,9 @@ const handleError = done => {
 
 const postcssPluginsDev = [
   postImport(),
+  advancedVariables(),
   simpleExtend(),
-  precss(),
+  postcssPresetEnv(),
   postNesting(),
   tailwindcss()
 ]
