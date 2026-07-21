@@ -4,38 +4,102 @@ SPDX-FileCopyrightText: 2026 Pavel Dimov <hello@dimov.xyz>
 SPDX-License-Identifier: GPL-3.0-or-later
 --}}
 
-{{!-- Off by default: only strictly-necessary cookies are set today, so no consent banner
-is legally required. Now an Admin-configurable toggle (Design settings) -- the slot was
-freed by moving logo_dark off config.custom to a fixed theme asset (see header.hbs /
-footer-dark.hbs). Flip on in Admin if a non-essential cookie is ever added. --}}
+{{!-- Admin-configurable (Design settings) -- the slot was freed by moving logo_dark off
+config.custom to a fixed theme asset (see header.hbs / footer-dark.hbs). Only strictly
+necessary cookies are set today, so this stays off by default; flip on in Admin if a
+non-essential cookie is ever added.
+
+GDPR/ePrivacy notes baked into the JS below:
+- Accept and Reject are both one click away and the same size/weight (no dark pattern).
+- Consent is stored with a timestamp and re-asked after 180 days (CNIL's recommended
+  revalidation window), not kept forever from one click.
+- Global Privacy Control (navigator.globalPrivacyControl) is honoured automatically:
+  if set, we record a rejection and skip showing the banner at all, but the reopener
+  below still lets the visitor review/change that at any time.
+- Before wiring up any future non-essential script, gate it on:
+  JSON.parse(localStorage.getItem('cookie-consent') || '{}').choice === 'accepted'
+- Only a binary accept/reject exists because only one cookie category (strictly
+  necessary, exempt, not shown here) exists today. If a second category is ever added,
+  this needs to become per-category granular consent, not a single toggle. --}}
 {{#if @custom.show_cookie_notice}}
-<div class="cookie-notice text-sm py-3 px-4 fixed bottom-0 inset-x-0 z-50 bg-gray-900 text-white">
-    <div class="mx-auto max-w-extreme flex flex-wrap items-center justify-between gap-3">
+<div class="cookie-notice hidden text-sm py-4 px-4 fixed bottom-0 inset-x-0 z-50 border-t bg-[var(--card-bg)] text-[var(--text-base)] border-[var(--border-color)]" role="region" aria-label="{{t "Cookie notice"}}">
+    <div class="mx-auto max-w-extreme flex flex-wrap items-center justify-between gap-4">
         <span>{{t "We only use strictly necessary cookies. See our Cookie Policy for details."}}</span>
         <div class="flex items-center gap-3 shrink-0">
             <a href="/cookie/" class="underline hover:no-underline">{{t "Cookie Policy"}}</a>
-            <button class="cookie-notice-accept bg-primary text-white px-4 py-1.5 rounded hover:opacity-90" aria-label="{{t "Accept cookies"}}">
+            <button class="cookie-notice-reject button" aria-label="{{t "Reject cookies"}}">
+                {{t "Reject"}}
+            </button>
+            <button class="cookie-notice-accept button is-primary" aria-label="{{t "Accept cookies"}}">
                 {{t "Accept"}}
             </button>
         </div>
     </div>
 </div>
+
+<button class="cookie-notice-reopen hidden text-sm fixed bottom-3 left-3 z-20 py-1.5 px-3 rounded-full border bg-[var(--card-bg)] text-[var(--text-base)] border-[var(--border-color)] hover:opacity-80" aria-label="{{t "Cookie settings"}}">
+    {{t "Cookie settings"}}
+</button>
+
 <script>
 (function () {
+    var STORAGE_KEY = 'cookie-consent'
+    var REVALIDATE_AFTER_MS = 180 * 24 * 60 * 60 * 1000 // ~6 months, matches CNIL guidance
+
     var notice = document.querySelector('.cookie-notice')
-    var accept = document.querySelector('.cookie-notice-accept')
+    var reopener = document.querySelector('.cookie-notice-reopen')
+    var acceptBtn = document.querySelector('.cookie-notice-accept')
+    var rejectBtn = document.querySelector('.cookie-notice-reject')
 
-    if (!notice || !accept) return
+    if (!notice || !reopener || !acceptBtn || !rejectBtn) return
 
-    if (localStorage.getItem('cookie-notice-accepted') === 'true') {
-        notice.classList.add('hidden')
-        return
+    function readConsent () {
+        try {
+            return JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null')
+        } catch (e) {
+            return null
+        }
     }
 
-    accept.addEventListener('click', function () {
+    function writeConsent (choice) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({ choice: choice, ts: Date.now() }))
+    }
+
+    function showNotice () {
+        notice.classList.remove('hidden')
+        reopener.classList.add('hidden')
+    }
+
+    function showReopener () {
         notice.classList.add('hidden')
-        localStorage.setItem('cookie-notice-accepted', 'true')
+        reopener.classList.remove('hidden')
+    }
+
+    var consent = readConsent()
+    var isFresh = consent && (Date.now() - consent.ts) < REVALIDATE_AFTER_MS
+
+    if (isFresh) {
+        showReopener()
+    } else if (!consent && typeof navigator.globalPrivacyControl !== 'undefined' && navigator.globalPrivacyControl) {
+        // Honour the browser's Global Privacy Control signal: record a rejection
+        // without ever showing the banner, but still leave it reviewable.
+        writeConsent('rejected')
+        showReopener()
+    } else {
+        showNotice()
+    }
+
+    acceptBtn.addEventListener('click', function () {
+        writeConsent('accepted')
+        showReopener()
     })
+
+    rejectBtn.addEventListener('click', function () {
+        writeConsent('rejected')
+        showReopener()
+    })
+
+    reopener.addEventListener('click', showNotice)
 })()
 </script>
 {{/if}}
