@@ -15,7 +15,7 @@ const livereload = require('gulp-livereload')
 const postcss = require('gulp-postcss')
 const zip = require('gulp-zip').default
 const gulpif = require('gulp-if')
-const sourcemaps = require('gulp-sourcemaps')
+const sourcemaps = require('gulp-sourcemaps') // dev-only, transitively pins postcss@7 (moderate CVEs) via @gulp-sourcemaps/identity-map - no newer release exists upstream, build-time only, accepted risk
 const header = require('gulp-header')
 
 // Babel
@@ -30,7 +30,7 @@ const merge = require('merge-stream')
 const cssnano = require('cssnano')
 const autoprefixer = require('autoprefixer')
 const comments = require('postcss-discard-comments')
-const simpleExtend = require('postcss-extend')
+const simpleExtend = require('postcss-extend') // 1.0.5 is the latest release upstream (unmaintained), moderate CVE via its postcss dep with no fix available - actively used for %placeholder @extend syntax throughout src/css/, accepted risk
 const tailwindcss = require('tailwindcss')
 const advancedVariables = require('postcss-advanced-variables')
 const postImport = require('postcss-import')
