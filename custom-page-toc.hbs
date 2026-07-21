@@ -21,24 +21,19 @@ SPDX-License-Identifier: GPL-3.0-or-later
         the way a hand-typed date in the page content can (and did, for /cookie/).
         Slug-gated to the three legal pages only -- repeated per-slug rather than a
         single OR check, matching this theme's own established pattern for slug-only
-        content (see author.hbs's `{{#match slug "pavel"}}` blocks). --}}
+        content (see author.hbs's `{{#match slug "pavel"}}` blocks).
+        No "Effective Date" line: privacy-policy and cookie are pre-existing Ghost
+        pages (published_at dates back to 2021, long before this GDPR rewrite), so
+        published_at doesn't actually track when this policy text took effect --
+        only updated_at (last edit) is reliably accurate for all three pages. --}}
         {{#match slug "privacy-policy"}}
-        <p class="post-legal-dates mt-4 text-sm text-gray-500">
-            {{t "Effective Date"}}: {{date published_at format="MMMM D, YYYY"}}<br>
-            {{t "Last Updated"}}: {{date updated_at format="MMMM D, YYYY"}}
-        </p>
+        <p class="post-legal-dates mt-4 text-sm text-gray-500">{{t "Last Updated"}}: {{date updated_at format="MMMM D, YYYY"}}</p>
         {{/match}}
         {{#match slug "cookie"}}
-        <p class="post-legal-dates mt-4 text-sm text-gray-500">
-            {{t "Effective Date"}}: {{date published_at format="MMMM D, YYYY"}}<br>
-            {{t "Last Updated"}}: {{date updated_at format="MMMM D, YYYY"}}
-        </p>
+        <p class="post-legal-dates mt-4 text-sm text-gray-500">{{t "Last Updated"}}: {{date updated_at format="MMMM D, YYYY"}}</p>
         {{/match}}
         {{#match slug "terms-of-service"}}
-        <p class="post-legal-dates mt-4 text-sm text-gray-500">
-            {{t "Effective Date"}}: {{date published_at format="MMMM D, YYYY"}}<br>
-            {{t "Last Updated"}}: {{date updated_at format="MMMM D, YYYY"}}
-        </p>
+        <p class="post-legal-dates mt-4 text-sm text-gray-500">{{t "Last Updated"}}: {{date updated_at format="MMMM D, YYYY"}}</p>
         {{/match}}
     </header>
 
