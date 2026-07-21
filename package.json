@@ -2,7 +2,7 @@
   "name": "simply",
   "description": "A Medium-inspired personal blog theme for Ghost, originally created by GodoFredo and maintained as a fork by Pavel Dimov",
   "demo": "https://blog-test.dimov.xyz",
-  "version": "3.0.4",
+  "version": "3.0.5",
   "engines": {
     "ghost": ">=5.0.0"
   },
@@ -112,9 +112,6 @@
         ],
         "default": "Auto"
       },
-      "logo_dark": {
-        "type": "image"
-      },
       "pagination": {
         "type": "select",
         "options": [
@@ -215,6 +212,10 @@
       "announcement_closeable": {
         "type": "boolean",
         "default": true
+      },
+      "show_cookie_notice": {
+        "type": "boolean",
+        "default": false
       }
     }
   },

@@ -12,8 +12,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
             <div class="footer-items">
                 {{!-- <h3 class="text-white mb-5 text-xl">{{t "About Us"}}</h3> --}}
                 {{#if @site.logo}}
-                    {{!-- This footer variant always has a dark background, so the dark logo (if uploaded) is always preferred here --}}
-                    <img src="{{#if @custom.logo_dark}}{{@custom.logo_dark}}{{else}}{{@site.logo}}{{/if}}" class="mb-5 max-h-9" alt="{{@site.title}}">
+                    {{!-- This footer variant always has a dark background, so the dark logo is always
+                         preferred here. Moved off config.custom (package.json was at Ghost's hard
+                         20-setting limit) to a fixed theme asset -- toggle this literal alongside the
+                         matching one in partials/layout/header.hbs, they must stay in sync. --}}
+                    <img src="{{#if true}}{{asset "images/logo-dark.svg"}}{{else}}{{@site.logo}}{{/if}}" class="mb-5 max-h-9" alt="{{@site.title}}">
                 {{else}}
                     <span class="text-3xl font-bold text-white">{{@site.title}}</span>
                 {{/if}}

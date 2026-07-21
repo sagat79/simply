@@ -1,0 +1,10 @@
+All Rights Reserved -- Brand Asset
+
+Copyright Pavel Dimov <hello@dimov.xyz>. All rights reserved.
+
+This file is a brand/trademark asset (logo, wordmark, or brand-derived
+artwork) and is NOT licensed under this theme's GPL-3.0-or-later code
+license. Unlike the theme's source code, it may not be used, copied,
+modified, or redistributed -- including by anyone forking, cloning, or
+redistributing this otherwise GPL-licensed theme -- without prior
+written permission from the copyright holder.

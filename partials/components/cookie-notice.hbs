@@ -5,10 +5,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 --}}
 
 {{!-- Off by default: only strictly-necessary cookies are set today, so no consent banner
-is legally required. Flip the literal `false` below to `true` if a non-essential cookie
-is ever added. Not wired to config.custom because package.json's config.custom is already
-at Ghost's hard 20-setting limit (gscan errors past that). --}}
-{{#if false}}
+is legally required. Now an Admin-configurable toggle (Design settings) -- the slot was
+freed by moving logo_dark off config.custom to a fixed theme asset (see header.hbs /
+footer-dark.hbs). Flip on in Admin if a non-essential cookie is ever added. --}}
+{{#if @custom.show_cookie_notice}}
 <div class="cookie-notice text-sm py-3 px-4 fixed bottom-0 inset-x-0 z-50 bg-gray-900 text-white">
     <div class="mx-auto max-w-extreme flex flex-wrap items-center justify-between gap-3">
         <span>{{t "We only use strictly necessary cookies. See our Cookie Policy for details."}}</span>
