@@ -5,9 +5,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 --}}
 
 {{!-- Admin-configurable (Design settings) -- the slot was freed by moving logo_dark off
-config.custom to a fixed theme asset (see header.hbs / footer-dark.hbs). Only strictly
-necessary cookies are set today, so this stays off by default; flip on in Admin if a
-non-essential cookie is ever added.
+config.custom to a fixed theme asset (see header.hbs / footer-dark.hbs). Defaults to ON:
+posts embed youtube-nocookie.com videos (see the "Andy Dexterity ... Imagine" post) --
+privacy-enhanced mode, but YouTube still sets its own cookies once a visitor presses
+play, and the iframe itself contacts Google's servers on page load regardless. That is
+real third-party/non-essential content, so "no non-essential cookies exist" was wrong
+and this can't ship off by default the way it could when that premise held.
 
 GDPR/ePrivacy notes baked into the JS below:
 - Accept and Reject are both one click away and the same size/weight (no dark pattern).
