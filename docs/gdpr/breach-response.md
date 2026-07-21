@@ -20,7 +20,11 @@ scope in `records-of-processing.md`.
 
 1. **Contain**: rotate any credential that may be exposed (DB password,
    Admin API keys), take the affected system offline if actively being
-   exploited, preserve logs before they rotate out.
+   exploited. **Note: there are currently no logs to preserve** — Docker's
+   log-driver is `none` on every container and Ghost's own file-log
+   transport is disabled (see `records-of-processing.md`), so this step is
+   not actionable as written today; assessment will have to rely on
+   database state and file timestamps instead of access/application logs.
 2. **Assess**: what data, how many people, what risk to them (identity
    theft, financial loss, etc.) — this determines whether notification is
    required.
