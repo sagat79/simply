@@ -15,6 +15,18 @@ SPDX-License-Identifier: GPL-3.0-or-later
                 <input name="email" type="email" placeholder="{{t "Email Address"}}" required>
             </div>
 
+            <div class="request-type-row mt-4">
+                <label for="requestType">{{t "Request Type"}}</label>
+                <select id="requestType" name="requestType">
+                    <option value="general">{{t "General Inquiry"}}</option>
+                    <option value="access">{{t "Access My Data"}}</option>
+                    <option value="delete">{{t "Delete My Data"}}</option>
+                    <option value="correct">{{t "Correct My Data"}}</option>
+                    <option value="export">{{t "Export My Data (Portability)"}}</option>
+                    <option value="other">{{t "Other"}}</option>
+                </select>
+            </div>
+
             <div class="privacy-row mt-6">
                 <input id="privacy" name="privacy" type="checkbox" required>
                 <label for="privacy">
