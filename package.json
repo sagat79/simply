@@ -279,7 +279,7 @@
     "prettier": "^3.5.3",
     "pump": "^3.0.0",
     "standard": "^17.0.0",
-    "stylelint": "^16.0.0",
+    "stylelint": "^17.0.0",
     "stylelint-config-css-modules": "^4.4.0",
     "stylelint-config-prettier-scss": "^1.0.0",
     "stylelint-config-recommended": "^16.0.0",
