@@ -252,7 +252,7 @@
     "babelify": "^10.0.0",
     "browserify": "^17.0.0",
     "cross-env": "^10.0.0",
-    "cssnano": "^8.0.0",
+    "cssnano": "^9.0.0",
     "cssnano-preset-advanced": "^9.0.0",
     "del": "^8.0.0",
     "dotenv": "^17.0.0",
