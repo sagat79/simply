@@ -26,9 +26,15 @@ SPDX-License-Identifier: GPL-3.0-or-later
 <p align="center">
     A free, Medium-inspired personal blog theme for <a href="https://github.com/tryghost/ghost/">Ghost</a>.
     <br />
-    Originally created by GodoFredo; this fork is maintained by
+    Originally created by GodoFredo; forked and extended by
     <a href="https://github.com/sagat79">Pavel Dimov</a>.
 </p>
+
+> [!NOTE]
+> **Archived / not maintained.** This fork ran [dimov.xyz](https://dimov.xyz)
+> until August 2026; the site now uses a different, purpose-built theme. The
+> code stays under `GPL-3.0-or-later` - fork freely. For an actively maintained
+> version, see the upstream: [godofredoninja/simply](https://github.com/godofredoninja/simply).
 
 ## Featured
 
